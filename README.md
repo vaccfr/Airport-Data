@@ -6,10 +6,11 @@ Airport data for the VATSIM France tools, maintained by the vACC and edited thro
 |---|---|---|
 | [`runways/`](runways/) | Runway geometry of the French airports: ends, true headings, thresholds, lengths | Generated at each AIRAC |
 | [`runway-use/`](runway-use/) | How runways are used: preferred configurations, conditions, restrictions, closures and linked airports, one file per FIR | By hand |
+| [`positions/`](positions/) | Control positions and the airports each one is responsible for, one file per FIR | By hand |
 | [`schemas/`](schemas/) | JSON Schemas of the datasets | Generated |
 | [`tools/`](tools/) | `airport-data.mjs`: checks the datasets and generates their schemas | Generated |
 
-Today aras, the vACC runway assignment service, reads this data to decide which runways are in use. Other datasets, such as ATC positions, will be added next to these.
+aras, the vACC runway assignment service, reads the runway data to decide which runways are in use. CoStarter reads the positions to set up a control session.
 
 ## Checking a change
 
@@ -145,6 +146,51 @@ These can go in `[defaults]` or on an airport:
 | `established_tailwind_hours` | `3` | Hours a forecast tailwind must last before a choice gives way to one without tailwind. Also allowed on a choice; `0` disables it |
 
 The configuration in use stays while it is usable. Going back to a better choice needs the wind to be under the limits minus the margin, and the forecast to agree. A tailwind within `max_tailwind` is only tolerated while it is temporary or variable. When the forecast keeps a tailwind from a defined direction on a runway for `established_tailwind_hours`, and another choice is usable without one, that other choice is used. Set `established_tailwind_hours = 0` on a choice that deliberately accepts a tailwind, such as a night noise procedure.
+
+## Control positions
+
+`positions/<FIR>.toml` says which airports a control position is responsible for. CoStarter reads it to set up a session: it writes the position's login details into EuroScope, sets the runways of every airport listed, and offers an ATIS for those that publish one.
+
+Each file starts with this line, which gives validation and help in editors that support it:
+
+```toml
+#:schema ../schemas/positions.schema.json
+```
+
+Tower, ground, delivery and ramp are not listed: they are responsible for the airport their callsign names, and need no entry. Approach and centre do, because their area is wider than their callsign and a EuroScope profile cannot describe it — a profile has nine fast keys, while Marseille centre reaches more than twenty airports.
+
+```toml
+[[position]]
+match = ["LFBO_APP", "LFBO_*_APP"]
+airports = ["LFBO", "LFBA", "LFMK"]
+```
+
+| Key | | |
+|---|---|---|
+| `match` | required | Callsigns this entry covers. `*` matches any run of characters |
+| `airports` | required | Airports in the area, most important first |
+| `profile` | optional | EuroScope profile name, where it cannot be worked out from the callsign |
+| `note` | optional | Free text, for example the agreement this follows |
+
+### Matching callsigns
+
+`*` is the only wildcard and stands for any run of characters, so `LFPO_*_APP` covers `LFPO_W_APP` but not `LFPO_APP`: the underscores around it are literal. List both forms when a position also exists undivided.
+
+An exact callsign always wins over a pattern that also covers it, and between patterns the one with fewer wildcards wins, then the longer one. A single split can therefore be given its own entry without being carved out of the family pattern it falls under.
+
+### Priority and ATIS
+
+Only four ATIS can be published at once, so `airports` is an order rather than a set: the first four that publish one are what the controller is offered.
+
+An airport can be in the area without getting top-down service. Mark it `atis = false` and its runways are still configured, which is what a position needs when it has to hold the configuration of a neighbouring field without serving it.
+
+```toml
+[[position]]
+match = ["LFPO_APP", "LFPO_DEP", "LFPO_*_APP"]
+airports = ["LFPO", { icao = "LFPN", atis = false }]
+```
+
+Airports that must face the same way are linked in [`runway-use/`](#linked-airports-and-weather-stations) with `follow`, not here: that link holds whoever is controlling.
 
 ## Generated files
 

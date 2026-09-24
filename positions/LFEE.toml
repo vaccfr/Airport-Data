@@ -1,0 +1,29 @@
+#:schema ../schemas/positions.schema.json
+# Reims FIR.
+#
+# Each entry lists the airports a position is responsible for, most important
+# first. Only the first four that publish an ATIS can be on at once, so the
+# order is the priority. An airport with `atis = false` keeps its runway
+# configuration without an ATIS, for a field in the area that gets no top-down
+# service. See the README for the full format.
+#
+# Tower, ground, delivery and ramp are not listed: they are responsible for the
+# airport their callsign names, and need no entry.
+#
+# Every approach below covers its own field. Where it also gives top-down
+# service to neighbouring fields, add them to its list.
+#
+# Centre positions are not described yet. Each needs an entry naming the
+# airports it covers when no approach is open beneath it.
+
+[[position]]
+match = ["LFJL_APP"]
+airports = ["LFJL"]
+
+[[position]]
+match = ["LFSB_APP", "LFSB_*_APP"]
+airports = ["LFSB"]
+
+[[position]]
+match = ["LFST_*_APP"]
+airports = ["LFST"]

@@ -1,0 +1,45 @@
+#:schema ../schemas/positions.schema.json
+# Bordeaux FIR.
+#
+# Each entry lists the airports a position is responsible for, most important
+# first. Only the first four that publish an ATIS can be on at once, so the
+# order is the priority. An airport with `atis = false` keeps its runway
+# configuration without an ATIS, for a field in the area that gets no top-down
+# service. See the README for the full format.
+#
+# Tower, ground, delivery and ramp are not listed: they are responsible for the
+# airport their callsign names, and need no entry.
+#
+# Every approach below covers its own field. Where it also gives top-down
+# service to neighbouring fields, add them to its list.
+#
+# Centre positions are not described yet. Each needs an entry naming the
+# airports it covers when no approach is open beneath it.
+
+[[position]]
+match = ["LFBD_*_APP"]
+airports = ["LFBD"]
+
+[[position]]
+match = ["LFBH_APP", "LFBH_*_APP"]
+airports = ["LFBH"]
+
+[[position]]
+match = ["LFBI_APP", "LFBI_*_APP"]
+airports = ["LFBI"]
+
+[[position]]
+match = ["LFBL_APP", "LFBL_*_APP"]
+airports = ["LFBL"]
+
+[[position]]
+match = ["LFBO_*_APP"]
+airports = ["LFBO", "LFBA", "LFMK"]
+
+[[position]]
+match = ["LFBP_APP", "LFBP_*_APP"]
+airports = ["LFBP"]
+
+[[position]]
+match = ["LFBZ_APP", "LFBZ_*_APP"]
+airports = ["LFBZ"]

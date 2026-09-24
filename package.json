@@ -1,7 +1,7 @@
 {
   "name": "airport-data",
   "private": true,
-  "description": "Airport data for VATSIM France tools: runway geometry and runway use",
+  "description": "Airport data for VATSIM France tools: runway geometry, runway use and control positions",
   "type": "module",
   "engines": {
     "node": ">=24"
