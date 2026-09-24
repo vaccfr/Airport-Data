@@ -1,0 +1,74 @@
+{
+  "title": "Control positions",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "position": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "match": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Z0-9_*]{2,16}$"
+            },
+            "description": "Callsigns this entry covers. \"*\" matches any run of characters."
+          },
+          "profile": {
+            "description": "EuroScope profile name, without the .prf extension. Only needed where the profile cannot be worked out from the callsign.",
+            "type": "string",
+            "minLength": 1
+          },
+          "airports": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[A-Z0-9]{4}$"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "icao": {
+                      "type": "string",
+                      "pattern": "^[A-Z0-9]{4}$"
+                    },
+                    "atis": {
+                      "description": "Whether this position publishes an ATIS here. Default true. False keeps the runways without the ATIS, for an airport inside the area that gets no top-down service.",
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "icao"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "description": "Airports in the area, most important first. Only the first four that publish an ATIS can be turned on at once, so the order is the priority."
+          },
+          "note": {
+            "description": "Free text, for example the agreement this follows.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "match",
+          "airports"
+        ],
+        "additionalProperties": false
+      },
+      "description": "The positions defined in this file."
+    }
+  },
+  "required": [
+    "position"
+  ],
+  "additionalProperties": false
+}
