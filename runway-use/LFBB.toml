@@ -1,0 +1,27 @@
+#:schema ../schemas/runway-use.schema.json
+# Bordeaux FIR.
+#
+# Choices are read by number: 1 is the first choice, and the first usable one
+# is used. See the README for every setting and the condition language.
+
+[defaults]
+timezone = "Europe/Paris"
+max_tailwind = 5          # kt, gusts included
+max_crosswind = 20        # kt, gusts included
+
+# 05/23 is used into wind until the crosswind on it goes above 15 kt;
+# 11/29 then takes over.
+
+[LFBD.choice.1]
+note = "Main runway, into wind"
+runways = ["05/23"]
+max_crosswind = 15
+
+[LFBD.choice.2]
+note = "Crosswind runway"
+runways = ["11/29"]
+
+[[LFBD.unavailable]]
+runways = ["11/29"]
+when = "lvo"
+note = "No LVP on 11/29"

@@ -1,0 +1,221 @@
+{
+  "title": "Runway use",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "defaults": {
+      "type": "object",
+      "properties": {
+        "timezone": {
+          "description": "IANA time zone for \"time\" conditions, e.g. \"Europe/Paris\". Default \"UTC\".",
+          "type": "string"
+        },
+        "max_tailwind": {
+          "description": "Maximum tailwind in kt, gusts included. Default 5.",
+          "type": "number",
+          "minimum": 0
+        },
+        "max_crosswind": {
+          "description": "Maximum crosswind in kt, gusts included. Default 20.",
+          "type": "number",
+          "minimum": 0
+        },
+        "lvo": {
+          "description": "Condition defining low-visibility operations. Default \"rvr < 550 or visibility < 550 or ceiling < 200\".",
+          "type": "string",
+          "minLength": 1
+        },
+        "hysteresis_margin": {
+          "description": "Knots below the wind limits required to move back up to a better choice. Default 3.",
+          "type": "number",
+          "minimum": 0
+        },
+        "lookahead_hours": {
+          "description": "Hours of forecast a better choice must stay usable for before switching to it. Default 2.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 24
+        },
+        "established_tailwind_hours": {
+          "description": "Hours a forecast tailwind must last before this choice gives way to one without tailwind. 0 disables. Default 3.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 24
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": {
+    "type": "object",
+    "properties": {
+      "timezone": {
+        "description": "IANA time zone for \"time\" conditions, e.g. \"Europe/Paris\". Default \"UTC\".",
+        "type": "string"
+      },
+      "max_tailwind": {
+        "description": "Maximum tailwind in kt, gusts included. Default 5.",
+        "type": "number",
+        "minimum": 0
+      },
+      "max_crosswind": {
+        "description": "Maximum crosswind in kt, gusts included. Default 20.",
+        "type": "number",
+        "minimum": 0
+      },
+      "lvo": {
+        "description": "Condition defining low-visibility operations. Default \"rvr < 550 or visibility < 550 or ceiling < 200\".",
+        "type": "string",
+        "minLength": 1
+      },
+      "hysteresis_margin": {
+        "description": "Knots below the wind limits required to move back up to a better choice. Default 3.",
+        "type": "number",
+        "minimum": 0
+      },
+      "lookahead_hours": {
+        "description": "Hours of forecast a better choice must stay usable for before switching to it. Default 2.",
+        "type": "number",
+        "minimum": 0,
+        "maximum": 24
+      },
+      "established_tailwind_hours": {
+        "description": "Hours a forecast tailwind must last before this choice gives way to one without tailwind. 0 disables. Default 3.",
+        "type": "number",
+        "minimum": 0,
+        "maximum": 24
+      },
+      "name": {
+        "description": "Overrides the runway database name.",
+        "type": "string",
+        "minLength": 1
+      },
+      "metar": {
+        "description": "Ordered METAR stations; the first fresh one is used. Default: the airport itself.",
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "^[A-Z0-9]{4}$"
+        }
+      },
+      "follow": {
+        "description": "Leader airport: this airport must face the same direction.",
+        "type": "string",
+        "pattern": "^[A-Z0-9]{4}$"
+      },
+      "choice": {
+        "description": "Configurations by number: 1 is the first choice, the first usable one wins.",
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[1-9]\\d*$"
+        },
+        "additionalProperties": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "description": "Configuration name, e.g. \"WEST\".",
+              "type": "string",
+              "minLength": 1
+            },
+            "note": {
+              "description": "Free text shown with the decision.",
+              "type": "string"
+            },
+            "runways": {
+              "description": "Runways for arrivals and departures. \"05/23\" = that runway facing into the wind, \"23\" = that direction only.",
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^(0[1-9]|[12][0-9]|3[0-6])[LCR]?(\\/(0[1-9]|[12][0-9]|3[0-6])[LCR]?)?$"
+              }
+            },
+            "arr": {
+              "description": "Arrival runway ends (use with \"dep\").",
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^(0[1-9]|[12][0-9]|3[0-6])[LCR]?$"
+              }
+            },
+            "dep": {
+              "description": "Departure runway ends (use with \"arr\").",
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^(0[1-9]|[12][0-9]|3[0-6])[LCR]?$"
+              }
+            },
+            "when": {
+              "description": "Condition for this choice, e.g. \"time 22:00-06:00 and wind < 5\".",
+              "type": "string",
+              "minLength": 1
+            },
+            "max_tailwind": {
+              "description": "Tailwind limit for this choice, kt.",
+              "type": "number",
+              "minimum": 0
+            },
+            "max_crosswind": {
+              "description": "Crosswind limit for this choice, kt.",
+              "type": "number",
+              "minimum": 0
+            },
+            "established_tailwind_hours": {
+              "description": "Hours a forecast tailwind must last before this choice gives way to one without tailwind. 0 disables. Default 3.",
+              "type": "number",
+              "minimum": 0,
+              "maximum": 24
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "unavailable": {
+        "description": "Runways that cannot be used, permanently, under a condition or between dates.",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "runways": {
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^(0[1-9]|[12][0-9]|3[0-6])[LCR]?(\\/(0[1-9]|[12][0-9]|3[0-6])[LCR]?)?$"
+              },
+              "description": "Runway ends or pairs (a pair means both ends)."
+            },
+            "when": {
+              "description": "Unavailable while this condition holds, e.g. \"lvo\".",
+              "type": "string",
+              "minLength": 1
+            },
+            "from": {
+              "description": "Unavailable from this date-time (inclusive).",
+              "type": "string",
+              "format": "date-time"
+            },
+            "to": {
+              "description": "Unavailable until this date-time (exclusive).",
+              "type": "string",
+              "format": "date-time"
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "runways"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+}

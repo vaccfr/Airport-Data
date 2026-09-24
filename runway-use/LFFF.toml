@@ -1,0 +1,39 @@
+#:schema ../schemas/runway-use.schema.json
+# Paris FIR.
+#
+# To be confirmed by the maintainers: the configurations below are a first
+# version and have not been checked against the local procedures yet.
+
+[defaults]
+timezone = "Europe/Paris"
+
+[LFPG.choice.1]
+name = "WEST"
+arr = ["26L", "27R"]
+dep = ["26R", "27L"]
+
+[LFPG.choice.2]
+name = "EAST"
+arr = ["08R", "09L"]
+dep = ["08L", "09R"]
+
+[LFPO.choice.1]
+name = "WEST"
+arr = ["25"]
+dep = ["24"]
+
+[LFPO.choice.2]
+name = "EAST"
+arr = ["06"]
+dep = ["07"]
+
+# Toussus faces the same way as Orly.
+[LFPN]
+metar = ["LFPN", "LFPV"]
+follow = "LFPO"
+
+[LFPN.choice.1]
+runways = ["07L/25R"]
+
+[LFPN.choice.2]
+runways = ["07R/25L"]
