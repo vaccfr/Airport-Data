@@ -34,7 +34,19 @@ airports = ["LFBL"]
 
 [[position]]
 match = ["LFBO_*_APP"]
-airports = ["LFBO", "LFBA", "LFMK"]
+airports = [
+  "LFBO",
+  "LFBA",
+  "LFMK",
+  { icao = "LFBR", atis = false },
+  { icao = "LFBF", atis = false },
+  { icao = "LFCK", atis = false },
+  { icao = "LFCL", atis = false },
+  { icao = "LFCI", atis = false },
+  { icao = "LFDJ", atis = false },
+  { icao = "LFCC", atis = false },
+]
+note = "Toulouse approach area. Every sector sets all these runways, since each sees their traffic. The ATIS go to Blagnac, Agen and Carcassonne."
 
 [[position]]
 match = ["LFBP_APP", "LFBP_*_APP"]
