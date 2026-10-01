@@ -113,13 +113,18 @@ name = "14L/32R ONLY"
 runways = ["14L/32R"]
 
 # Agen. Only 29 has instrument procedures (RNP approach, SID, STAR: AD 2.24),
-# so 29 is kept while the tailwind stays within the limit. The LVO limits
-# (AD 2.22.6) restrict landings and take-offs but change no runway.
+# so arrivals stay on it whatever the wind and an easterly is worked with a
+# visual approach or circling. 29 is also the first choice, so both directions
+# use it while the tailwind stays within the limit. The LVO limits (AD 2.22.6)
+# restrict landings and take-offs but change no runway.
+[LFBA]
+instrument_approaches = ["29"]
+
 [LFBA.choice.1]
-note = "Only runway with instrument procedures"
 runways = ["29"]
 
 [LFBA.choice.2]
+note = "Departures only; arrivals stay on 29"
 runways = ["11"]
 
 # Carcassonne. Both directions have an RNP approach and SIDs (AD 2.24) and no

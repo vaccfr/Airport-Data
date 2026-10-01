@@ -104,6 +104,15 @@
         "type": "string",
         "pattern": "^[A-Z0-9]{4}$"
       },
+      "instrument_approaches": {
+        "description": "Runway ends with a published instrument approach. Where set, arrivals are confined to them whatever the wind, so the procedures load; the other direction is flown visually or circling. Omit when every end has one.",
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "^(0[1-9]|[12][0-9]|3[0-6])[LCR]?$"
+        }
+      },
       "choice": {
         "description": "Configurations by number: 1 is the first choice, the first usable one wins.",
         "type": "object",
