@@ -135,6 +135,24 @@ metar = ["LFPN", "LFPV"]      # first fresh METAR is used
 
 `follow` takes priority over the wind: only a closed runway can prevent it. Without `metar`, an airport uses its own METAR, else the nearest one within 30 NM.
 
+### Instrument approaches
+
+Some airports have a published instrument approach to one end only. An IFR arrival cannot be given the other end whatever the wind, because the procedures for it do not exist, so arrivals stay on the end that has one and the other direction is worked with a visual approach or circling.
+
+```toml
+[LFBA]
+instrument_approaches = ["29"]   # the only end with a published approach
+```
+
+Arrivals are confined to these ends after a configuration is chosen, so no choice has to remember the constraint and none can put arrivals somewhere unusable. Departures still follow the wind, which is what puts the two in opposite directions:
+
+| Wind at Agen | Departures | Arrivals |
+|---|---|---|
+| 290/10 | 29 | 29 |
+| 110/12 | 11 | 29 |
+
+Omit the setting when every end has an approach, which is the common case. A controller who publishes an ATIS landing the other way is not overruled: that is the visual approach this setting is about, so aras reports it as a warning and uses what the ATIS says.
+
 ### Stability settings
 
 These can go in `[defaults]` or on an airport:
