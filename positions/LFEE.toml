@@ -18,12 +18,45 @@
 
 [[position]]
 match = ["LFJL_APP"]
-airports = ["LFJL"]
+airports = [
+  "LFJL",
+  { icao = "LFSG", atis = false },
+  { icao = "LFSN", atis = false },
+]
 
 [[position]]
 match = ["LFSB_APP", "LFSB_*_APP"]
-airports = ["LFSB"]
+airports = [
+  "LFGA",
+  "LFGJ",
+  "LFSB",
+  { icao = "LFLH", atis = false },
+  { icao = "LFQM", atis = false },
+  { icao = "LFSD", atis = false },
+  { icao = "LFSM", atis = false },
+]
 
 [[position]]
 match = ["LFST_*_APP"]
-airports = ["LFST"]
+airports = [
+  "LFJL",
+  "LFST",
+  { icao = "LFSG", atis = false },
+  { icao = "LFSN", atis = false },
+]
+
+[[position]]
+match = ["LFEE_CTR", "LFEE_*_CTR"]
+airports = [
+  "LFSB",
+  "LFST",
+  "LFGA",
+  "LFGJ",
+  "LFJL",
+  { icao = "LFLH", atis = false },
+  { icao = "LFQM", atis = false },
+  { icao = "LFSD", atis = false },
+  { icao = "LFSG", atis = false },
+  { icao = "LFSM", atis = false },
+  { icao = "LFSN", atis = false },
+]
