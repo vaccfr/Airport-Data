@@ -27,20 +27,20 @@ airports = [
 [[position]]
 match = ["LFSB_APP", "LFSB_*_APP"]
 airports = [
+  "LFSB",
   "LFGA",
   "LFGJ",
-  "LFSB",
-  { icao = "LFLH", atis = false },
-  { icao = "LFQM", atis = false },
   { icao = "LFSD", atis = false },
+  { icao = "LFQM", atis = false },
+  { icao = "LFLH", atis = false },
   { icao = "LFSM", atis = false },
 ]
 
 [[position]]
 match = ["LFST_*_APP"]
 airports = [
-  "LFJL",
   "LFST",
+  "LFJL",
   { icao = "LFSG", atis = false },
   { icao = "LFSN", atis = false },
 ]
@@ -50,13 +50,13 @@ match = ["LFEE_CTR", "LFEE_*_CTR"]
 airports = [
   "LFSB",
   "LFST",
+  "LFJL",
   "LFGA",
   "LFGJ",
-  "LFJL",
-  { icao = "LFLH", atis = false },
-  { icao = "LFQM", atis = false },
   { icao = "LFSD", atis = false },
   { icao = "LFSG", atis = false },
-  { icao = "LFSM", atis = false },
   { icao = "LFSN", atis = false },
+  { icao = "LFQM", atis = false },
+  { icao = "LFLH", atis = false },
+  { icao = "LFSM", atis = false },
 ]
