@@ -18,36 +18,153 @@
 
 [[position]]
 match = ["LFKB_APP", "LFKB_*_APP"]
-airports = ["LFKB"]
-
+airports = [
+  "LFKB",
+  "LFKC",
+]
 [[position]]
 match = ["LFKJ_APP", "LFKJ_*_APP"]
-airports = ["LFKJ"]
-
+airports = [
+  "LFKJ",
+  "LFKF",
+]
 [[position]]
 match = ["LFLB_APP", "LFLB_*_APP"]
-airports = ["LFLB"]
-
+airports = [
+  "LFLB",
+  { icao = "LFLP", atis = false },
+]
 [[position]]
 match = ["LFLC_*_APP"]
-airports = ["LFLC"]
-
+airports = [
+  "LFLC",
+  "LFMH",
+  "LFCR",
+  "LFLN",
+  { icao = "LFCC", atis = false },
+  { icao = "LFHP", atis = false },
+  { icao = "LFHY", atis = false },
+  { icao = "LFLO", atis = false },
+  { icao = "LFLV", atis = false },
+  { icao = "LFLW", atis = false },
+]
 [[position]]
 match = ["LFLL_*_APP"]
-airports = ["LFLL"]
-
+airports = [
+  "LFLL",
+  "LFLB",
+  "LFLS",
+  "LFLY",
+  "LFLG",
+  { icao = "LFLP", atis = false },
+  { icao = "LFLU", atis = false },
+]
 [[position]]
 match = ["LFLN_APP"]
 airports = ["LFLN"]
-
 [[position]]
 match = ["LFML_*_APP"]
-airports = ["LFML"]
-
+airports = [
+  "LFML",
+  "LFMV",
+  "LFMA",
+  { icao = "LFMQ", atis = false },
+]
 [[position]]
 match = ["LFMN_*_APP", "LFMN_*_DEP"]
-airports = ["LFMN"]
-
+airports = [
+  "LFMN",
+  "LFMD",
+  { icao = "LFTF", atis = false },
+  { icao = "LFTH", atis = false },
+]
 [[position]]
 match = ["LFMT_*_APP"]
-airports = ["LFMT"]
+airports = [
+  "LFMT",
+  "LFMP",
+  "LFMU",
+  "LFTW",
+  { icao = "LFMZ", atis = false },
+]
+[[position]]
+match = ["LFMM_CTR", "LFMM_*_CTR"]
+airports = [
+  "LFMN",
+  "LFML",
+  "LFLL",
+  "LFMD",
+  "LFMT",
+  "LFKJ",
+  "LFLC",
+  "LFKB",
+  "LFMP",
+  "LFLB",
+  "LFLS",
+  "LFMV",
+  "LFMU",
+  "LFTW",
+  "LFKC",
+  "LFMH",
+  "LFCR",
+  "LFLY",
+  "LFKF",
+  "LFMA",
+  "LFLG",
+  "LFLN",
+  { icao = "LFCC", atis = false },
+  { icao = "LFHP", atis = false },
+  { icao = "LFHY", atis = false },
+  { icao = "LFLO", atis = false },
+  { icao = "LFLP", atis = false },
+  { icao = "LFLU", atis = false },
+  { icao = "LFLV", atis = false },
+  { icao = "LFLW", atis = false },
+  { icao = "LFMQ", atis = false },
+  { icao = "LFMZ", atis = false },
+  { icao = "LFTF", atis = false },
+  { icao = "LFTH", atis = false },
+]
+[[position]]
+match = ["LFMM_E_CTR", "LFMM_RAE_CTR"]
+airports = [
+  "LFMN",
+  "LFMD",
+  "LFKJ",
+  "LFKB",
+  "LFKC",
+  "LFKF",
+  { icao = "LFTF", atis = false },
+  { icao = "LFTH", atis = false },
+]
+[[position]]
+match = ["LFMM_W_CTR", "LFMM_RAW_CTR"]
+airports = [
+  "LFML",
+  "LFLL",
+  "LFMT",
+  "LFLC",
+  "LFMP",
+  "LFLB",
+  "LFLS",
+  "LFMV",
+  "LFMU",
+  "LFTW",
+  "LFMH",
+  "LFCR",
+  "LFLY",
+  "LFMA",
+  "LFLG",
+  "LFLN",
+  { icao = "LFCC", atis = false },
+  { icao = "LFHP", atis = false },
+  { icao = "LFHY", atis = false },
+  { icao = "LFLO", atis = false },
+  { icao = "LFLP", atis = false },
+  { icao = "LFLU", atis = false },
+  { icao = "LFLV", atis = false },
+  { icao = "LFLW", atis = false },
+  { icao = "LFMQ", atis = false },
+  { icao = "LFMZ", atis = false },
+  { icao = "LFTH", atis = false },
+]

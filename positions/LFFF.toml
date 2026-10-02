@@ -13,29 +13,97 @@
 # Every approach below covers its own field. Where it also gives top-down
 # service to neighbouring fields, add them to its list.
 #
-# Centre positions are not described yet. Each needs an entry naming the
-# airports it covers when no approach is open beneath it.
+# Centre positions list the airports they cover when no approach is open
+# beneath them.
 
 [[position]]
 match = ["LFOB_APP", "LFOB_*_APP"]
-airports = ["LFOB"]
+airports = [
+  "LFOB",
+]
 
 [[position]]
 match = ["LFPG_*_APP", "LFPG_*_DEP"]
-airports = ["LFPG"]
-
-[[position]]
-match = ["LFPM_*_APP"]
-airports = ["LFPM"]
+airports = [
+  "LFPG",
+  "LFPO",
+  "LFOB",
+  "LFPB",
+  "LFPN",
+  "LFPT",
+  "LFPL",
+  "LFPZ",
+  "LFPV",
+  { icao = "LFPE", atis = false },
+  { icao = "LFPX", atis = false },
+]
 
 [[position]]
 match = ["LFPO_APP", "LFPO_DEP", "LFPO_*_APP"]
-airports = ["LFPO", { icao = "LFPN", atis = false }]
-
-[[position]]
-match = ["LFPT_APP", "LFPT_*_APP"]
-airports = ["LFPT"]
+airports = [
+  "LFPO",
+  "LFPN",
+  "LFPV",
+]
 
 [[position]]
 match = ["LFQQ_*_APP"]
-airports = ["LFQQ"]
+airports = [
+  "LFQQ",
+  "LFQT",
+  { icao = "LFAT", atis = false },
+  { icao = "LFAC", atis = false },
+  { icao = "LFAV", atis = false },
+  { icao = "LFAQ", atis = false },
+]
+
+[[position]]
+match = ["LFPM_*_APP"]
+airports = [
+  "LFOK",
+  "LFPM",
+  { icao = "LFOT", atis = false },
+  { icao = "LFQA", atis = false },
+  { icao = "LFQB", atis = false },
+  { icao = "LFOZ", atis = false },
+  { icao = "LFOQ", atis = false },
+  { icao = "LFLA", atis = false },
+  { icao = "LFOJ", atis = false },
+]
+
+[[position]]
+match = ["LFPT_APP", "LFPT_*_APP"]
+airports = [
+  "LFPT",
+]
+
+[[position]]
+match = ["PAR_CTR", "PAR_*_CTR"]
+airports = [
+  "LFPG",
+  "LFPO",
+  "LFOB",
+  "LFQQ",
+  "LFPB",
+  "LFPN",
+  "LFOK",
+  "LFPT",
+  "LFPM",
+  "LFPL",
+  "LFQT",
+  "LFPZ",
+  { icao = "LFPV", atis = false },
+  { icao = "LFAT", atis = false },
+  { icao = "LFOT", atis = false },
+  { icao = "LFAC", atis = false },
+  { icao = "LFPE", atis = false },
+  { icao = "LFAV", atis = false },
+  { icao = "LFQA", atis = false },
+  { icao = "LFQB", atis = false },
+  { icao = "LFPX", atis = false },
+  { icao = "LFOZ", atis = false },
+  { icao = "LFOQ", atis = false },
+  { icao = "LFAQ", atis = false },
+  { icao = "LFLA", atis = false },
+  { icao = "LFOJ", atis = false },
+]

@@ -18,12 +18,68 @@
 
 [[position]]
 match = ["LFRB_APP", "LFRB_*_APP"]
-airports = ["LFRB"]
-
-[[position]]
-match = ["LFRN_APP", "LFRN_*_APP"]
-airports = ["LFRN"]
+airports = [
+  "LFRB",
+  "LFRQ",
+  { icao = "LFRO", atis = false },
+  { icao = "LFRU", atis = false },
+  { icao = "LFEC", atis = false },
+]
 
 [[position]]
 match = ["LFRS_APP", "LFRS_*_APP"]
-airports = ["LFRS"]
+airports = [
+  "LFRS",
+  "LFRZ",
+  { icao = "LFRM", atis = false },
+  { icao = "LFJR", atis = false },
+  { icao = "LFRV", atis = false },
+  { icao = "LFRE", atis = false },
+  { icao = "LFRI", atis = false },
+  { icao = "LFOU", atis = false },
+  { icao = "LFEA", atis = false },
+  { icao = "LFEQ", atis = false },
+  { icao = "LFEY", atis = false },
+]
+
+[[position]]
+match = ["LFRN_APP", "LFRN_*_APP"]
+airports = [
+  "LFRN",
+  "LFRK",
+  "LFRG",
+  "LFRD",
+  { icao = "LFRC", atis = false },
+  { icao = "LFRT", atis = false },
+  { icao = "LFOH", atis = false },
+  { icao = "LFOV", atis = false },
+]
+
+[[position]]
+match = ["LFRR_CTR", "LFRR_*_CTR"]
+airports = [
+  "LFRS",
+  "LFRB",
+  "LFRN",
+  "LFRK",
+  "LFRG",
+  "LFRD",
+  "LFRQ",
+  "LFRZ",
+  { icao = "LFRM", atis = false },
+  { icao = "LFJR", atis = false },
+  { icao = "LFRC", atis = false },
+  { icao = "LFRT", atis = false },
+  { icao = "LFRV", atis = false },
+  { icao = "LFOH", atis = false },
+  { icao = "LFRO", atis = false },
+  { icao = "LFRE", atis = false },
+  { icao = "LFRI", atis = false },
+  { icao = "LFRU", atis = false },
+  { icao = "LFOV", atis = false },
+  { icao = "LFOU", atis = false },
+  { icao = "LFEA", atis = false },
+  { icao = "LFEQ", atis = false },
+  { icao = "LFEY", atis = false },
+  { icao = "LFEC", atis = false },
+]

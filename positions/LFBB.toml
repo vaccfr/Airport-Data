@@ -18,40 +18,105 @@
 
 [[position]]
 match = ["LFBD_*_APP"]
-airports = ["LFBD"]
+airports = [
+  "LFBD",
+  "LFBH",
+  "LFBE",
+  { icao = "LFBS", atis = false },
+  { icao = "LFBX", atis = false },
+  { icao = "LFCH", atis = false },
+  { icao = "LFCY", atis = false },
+  { icao = "LFDN", atis = false },
+]
 
 [[position]]
 match = ["LFBH_APP", "LFBH_*_APP"]
-airports = ["LFBH"]
+airports = [
+  "LFBH",
+  { icao = "LFDN", atis = false },
+]
 
 [[position]]
 match = ["LFBI_APP", "LFBI_*_APP"]
-airports = ["LFBI"]
+airports = [
+  "LFBI",
+  { icao = "LFBN", atis = false },
+  { icao = "LFLX", atis = false },
+]
 
 [[position]]
 match = ["LFBL_APP", "LFBL_*_APP"]
-airports = ["LFBL"]
+airports = [
+  "LFBL",
+  "LFBU",
+  { icao = "LFBK", atis = false },
+  { icao = "LFSL", atis = false },
+]
 
 [[position]]
 match = ["LFBO_*_APP"]
 airports = [
   "LFBO",
-  "LFBA",
   "LFMK",
-  { icao = "LFBR", atis = false },
+  "LFBA",
   { icao = "LFBF", atis = false },
+  { icao = "LFBR", atis = false },
+  { icao = "LFCC", atis = false },
+  { icao = "LFCI", atis = false },
   { icao = "LFCK", atis = false },
   { icao = "LFCL", atis = false },
-  { icao = "LFCI", atis = false },
   { icao = "LFDJ", atis = false },
-  { icao = "LFCC", atis = false },
 ]
 note = "Toulouse approach area. Every sector sets all these runways, since each sees their traffic. The ATIS go to Blagnac, Agen and Carcassonne."
 
 [[position]]
 match = ["LFBP_APP", "LFBP_*_APP"]
-airports = ["LFBP"]
+airports = [
+  "LFBZ",
+  "LFBP",
+  "LFBT",
+  { icao = "LFDH", atis = false },
+  { icao = "LFBY", atis = false },
+]
 
 [[position]]
 match = ["LFBZ_APP", "LFBZ_*_APP"]
-airports = ["LFBZ"]
+airports = [
+  "LFBZ",
+  { icao = "LFBY", atis = false },
+]
+
+[[position]]
+match = ["LFBB_CTR", "LFBB_*_CTR"]
+airports = [
+  "LFBO",
+  "LFBD",
+  "LFBZ",
+  "LFBP",
+  "LFBH",
+  "LFMK",
+  "LFBL",
+  "LFBI",
+  "LFBT",
+  "LFBE",
+  "LFBA",
+  "LFBU",
+  { icao = "LFBF", atis = false },
+  { icao = "LFBK", atis = false },
+  { icao = "LFBN", atis = false },
+  { icao = "LFBR", atis = false },
+  { icao = "LFBS", atis = false },
+  { icao = "LFBX", atis = false },
+  { icao = "LFBY", atis = false },
+  { icao = "LFCC", atis = false },
+  { icao = "LFCH", atis = false },
+  { icao = "LFCI", atis = false },
+  { icao = "LFCK", atis = false },
+  { icao = "LFCL", atis = false },
+  { icao = "LFCY", atis = false },
+  { icao = "LFDH", atis = false },
+  { icao = "LFDJ", atis = false },
+  { icao = "LFDN", atis = false },
+  { icao = "LFLX", atis = false },
+  { icao = "LFSL", atis = false },
+]
