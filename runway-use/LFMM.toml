@@ -1,0 +1,432 @@
+#:schema ../schemas/runway-use.schema.json
+# Marseille FIR.
+#
+# Sources: AIP France effective 01 OCT 2026, AD 2.20-2.24 and VAC TXT.
+# AD 2 pages (replace ICAO):
+# https://www.sia.aviation-civile.gouv.fr/media/dvd/eAIP_01_OCT_2026/FRANCE/AIRAC-2026-10-01/html/eAIP/FR-AD-2.ICAO-fr-FR.html
+# VAC charts (replace ICAO):
+# https://www.sia.aviation-civile.gouv.fr/media/dvd/eAIP_01_OCT_2026/Atlas-VAC/PDF_AIPparSSection/VAC/AD/AD-2.ICAO.pdf
+#
+# Use the principal paved runway unless a published preference applies.
+# Grass, glider and aircraft-size-restricted secondary runways are omitted.
+# The default wind limits are configuration limits, not aircraft limitations.
+# Wet/dry surfaces, aircraft capability, solar night, traffic load and ATC
+# authorization cannot be tested by this schema. Such restrictions still
+# require controller judgement; these rules do not replace operating minima.
+# Visibility is a conservative proxy for RVR in the LVO conditions below.
+
+[defaults]
+timezone = "Europe/Paris"
+max_tailwind = 5          # kt, gusts included
+max_crosswind = 20        # kt, gusts included; conservative wet-runway baseline
+
+# Cahors Lalbenque. Existing preferred choices moved from LFBB.
+# Only 13 has an instrument approach (RNP: AD 2.24).
+[LFCC]
+instrument_approaches = ["13"]
+
+[LFCC.choice.1]
+note = "Only runway with an instrument approach"
+runways = ["13"]
+
+[LFCC.choice.2]
+runways = ["31"]
+
+# Rodez Aveyron. QFU 307 preferred due to IFR procedures (VAC TXT).
+[LFCR.choice.1]
+note = "Published preferred QFU"
+runways = ["31"]
+
+[LFCR.choice.2]
+runways = ["13"]
+
+# Le Puy Loudes. QFU 329 preferred due to the single taxiway (VAC TXT).
+[LFHP.choice.1]
+note = "Published preferred QFU"
+runways = ["33"]
+
+[LFHP.choice.2]
+runways = ["15"]
+
+# Moulins Montbeugny. 26 preferred for IFR and environmental reasons
+# (VAC TXT); only 26 has an instrument approach (AD 2.24).
+[LFHY]
+instrument_approaches = ["26"]
+
+[LFHY.choice.1]
+note = "Published preferred QFU"
+runways = ["26"]
+
+[LFHY.choice.2]
+runways = ["08"]
+
+# Bastia Poretta. Both ends have instrument approaches.
+[LFKB.choice.1]
+runways = ["16/34"]
+
+# Calvi Sainte-Catherine. Instrument approaches lead to 18; circling to
+# 36 needs the published special conditions (AD 2.22). Departures prefer
+# 36 up to the aircraft's tailwind limit; use the conservative 5 kt default.
+# The arrival constraint is applied after selection, allowing ARR 18/DEP 36.
+# Departures on 18 need ceiling >= 1500 ft and visibility >= 8 km.
+# Heavy-aircraft authorization and the special RWY 36 circling minima remain
+# manual. Crosswind >= 20 kt is prohibited when wet (AD 2.20); conservatively
+# exclude that boundary regardless of surface, since wetness is not available.
+[LFKC]
+instrument_approaches = ["18"]
+
+[LFKC.choice.1]
+note = "Preferred departure 36; instrument arrivals 18"
+runways = ["36"]
+established_tailwind_hours = 0
+
+[LFKC.choice.2]
+note = "Departure 18 weather requirements"
+runways = ["18"]
+when = "ceiling >= 1500 and visibility >= 8000"
+
+[[LFKC.unavailable]]
+runways = ["18/36"]
+when = "lvo or crosswind 18/36 >= 20"
+note = "LVP prohibited; conservative wet-runway crosswind restriction"
+
+# Figari Sud Corse. Both ends have instrument approaches; the default
+# crosswind limit retains the published wet-runway limit of 20 kt.
+[LFKF.choice.1]
+runways = ["05/23"]
+
+# Ajaccio Napoleon Bonaparte. Both ends have instrument approaches,
+# including RNP AR to 20. That approach requires aircraft/crew approval;
+# visual approaches and VPT to 20 are prohibited at night (AD 2.22).
+[LFKJ.choice.1]
+runways = ["02/20"]
+
+# Chambery Aix-les-Bains. QFU 355 preferred for environmental reasons
+# (VAC TXT). Straight-in instrument approaches are to 18; 36 needs VPT.
+[LFLB]
+instrument_approaches = ["18"]
+
+[LFLB.choice.1]
+note = "Published preferred QFU; instrument arrivals 18"
+runways = ["36"]
+
+[LFLB.choice.2]
+runways = ["18"]
+
+# Clermont-Ferrand Auvergne. Instrument approaches are to 26 (AD 2.24).
+# In LVP, departures may use either end, but below 150 m RVR must use 26
+# (AD 2.22). The parallel and crosswind grass runways are omitted.
+[LFLC]
+instrument_approaches = ["26"]
+
+[LFLC.choice.1]
+runways = ["08/26"]
+
+[[LFLC.unavailable]]
+runways = ["08"]
+when = "rvr < 150"
+note = "Below 150 m RVR, departure 26 only"
+
+# Grenoble Le Versoud. QFU 042 preferred due to declared distances
+# (VAC TXT). Helicopter PinS procedures do not constrain fixed-wing use.
+[LFLG.choice.1]
+note = "Published preferred QFU"
+runways = ["04"]
+
+[LFLG.choice.2]
+runways = ["22"]
+
+# Lyon Saint-Exupery. Outer runway for arrivals, inner for departures
+# (AD 2.22.1.2). No published calm-wind QFU preference: north is the tie-break.
+# Only 35L/35R support CAT II/III and LVTO (AD 2.22.5). Single-runway
+# choices provide fallbacks if one physical runway is unavailable.
+[LFLL]
+lvo = "rvr <= 550 or visibility <= 550 or ceiling <= 200"
+
+[LFLL.choice.10]
+name = "NORTH"
+arr = ["35R"]
+dep = ["35L"]
+
+[LFLL.choice.20]
+name = "SOUTH"
+arr = ["17L"]
+dep = ["17R"]
+when = "not lvo"
+
+[LFLL.choice.30]
+note = "Inner runway only"
+runways = ["17R/35L"]
+when = "not lvo"
+
+[LFLL.choice.40]
+note = "Outer runway only"
+runways = ["17L/35R"]
+when = "not lvo"
+
+[LFLL.choice.50]
+note = "LVP inner runway only"
+runways = ["35L"]
+when = "lvo"
+
+[LFLL.choice.60]
+note = "LVP outer runway only"
+runways = ["35R"]
+when = "lvo"
+
+# Saint-Yan. QFU 326 preferred due to IFR procedures (VAC TXT).
+# Use the main paved 15L/33R, not the shorter parallel training runway.
+[LFLN.choice.1]
+note = "Published preferred QFU"
+runways = ["33R"]
+
+[LFLN.choice.2]
+runways = ["15L"]
+
+# Roanne. Only 19 has instrument approaches (AD 2.24).
+[LFLO]
+instrument_approaches = ["19"]
+
+[LFLO.choice.1]
+runways = ["01/19"]
+
+# Annecy Meythet. Instrument approaches lead to 04; 22 requires VPT.
+# LVTO is authorized only on 22 (AD 2.22). The end closure applies to
+# configuration selection; instrument arrivals remain constrained to 04.
+[LFLP]
+instrument_approaches = ["04"]
+
+[LFLP.choice.1]
+runways = ["04/22"]
+
+[[LFLP.unavailable]]
+runways = ["04"]
+when = "rvr < 550"
+note = "LVTO on 22 only"
+
+# Grenoble Alpes Isere. QFU 088 preferred due to IFR procedures (VAC TXT).
+# Both ends have instrument approaches, including RNP to 27 (AD 2.24).
+# Below 400 m RVR, takeoffs and landings are prohibited (AD 2.22).
+# Between 400 and 550 m RVR the arrival prohibition is movement-specific
+# and cannot be represented by a runway closure without also blocking LVTO.
+[LFLS.choice.1]
+note = "Published preferred QFU"
+runways = ["09"]
+
+[LFLS.choice.2]
+runways = ["27"]
+
+[[LFLS.unavailable]]
+runways = ["09/27"]
+when = "rvr < 400"
+note = "Takeoffs and landings prohibited below 400 m RVR"
+
+# Valence Chabeuil. QFU 006 preferred due to IFR procedures (VAC TXT).
+# IFR landings are prohibited above 15 kt crosswind (AD 2.22); apply the
+# same conservative limit to the whole configuration.
+[LFLU]
+max_crosswind = 15
+
+[LFLU.choice.1]
+note = "Published preferred QFU"
+runways = ["01"]
+
+[LFLU.choice.2]
+runways = ["19"]
+
+# Vichy Charmeil. 01 preferred due to IFR procedures (VAC TXT);
+# only 01 has an instrument approach (AD 2.24).
+[LFLV]
+instrument_approaches = ["01"]
+
+[LFLV.choice.1]
+note = "Published preferred QFU"
+runways = ["01"]
+
+[LFLV.choice.2]
+runways = ["19"]
+
+# Aurillac. Only 15 has an instrument approach (AD 2.24).
+[LFLW]
+instrument_approaches = ["15"]
+
+[LFLW.choice.1]
+runways = ["15/33"]
+
+# Lyon Bron. Both ends have instrument approaches.
+[LFLY.choice.1]
+runways = ["16/34"]
+
+# Aix Les Milles. 32 preferred due to local meteorology (VAC TXT).
+[LFMA.choice.1]
+note = "Published preferred QFU"
+runways = ["32"]
+
+[LFMA.choice.2]
+runways = ["14"]
+
+# Cannes Mandelieu. 17 preferred for LDA/environment (AD 2.21, VAC TXT).
+# Instrument arrivals to 17 use the published offset approach/VPT; 35 has
+# straight-in RNP approaches. At night, landings are restricted to 35
+# (AD 2.22): solar night is not a condition in this schema, so the controller
+# must select 35 then. The short 04/22 and grass parallel are omitted.
+[LFMD.choice.1]
+note = "Published preferred QFU; night landings require 35"
+runways = ["17"]
+
+[LFMD.choice.2]
+runways = ["35"]
+
+# Saint-Etienne Loire. Both ends have instrument approaches.
+[LFMH.choice.1]
+runways = ["17/35"]
+
+# Marseille Provence. Primary runway 13L/31R; secondary 13R/31L.
+# Night counter-direction use is preferred 23:00-06:00 local with wind
+# <= 5 kt AND light traffic (AD 2.21.6). The time/wind rule assumes light
+# traffic; ATC must override it when the traffic or operational needs differ.
+# Only 13L is CAT II/III equipped; 31R supports LVTO (AD 2.22.4).
+[LFML]
+lvo = "rvr < 800 or visibility < 800 or ceiling < 300"
+
+[LFML.choice.10]
+note = "CAT II/III on primary runway"
+runways = ["13L"]
+when = "rvr < 550 or visibility < 550 or ceiling < 200"
+
+[LFML.choice.20]
+note = "Night noise procedure; light traffic assumed"
+arr = ["13L"]
+dep = ["31R"]
+when = "time 23:00-06:00 and wind <= 5 and not lvo"
+established_tailwind_hours = 0
+
+[LFML.choice.30]
+note = "Primary runway, into wind"
+runways = ["13L/31R"]
+when = "not (rvr < 550 or visibility < 550 or ceiling < 200)"
+
+[LFML.choice.40]
+note = "Secondary runway, southeast"
+runways = ["13R"]
+
+[LFML.choice.50]
+note = "Secondary runway, northwest; conservative wet-runway limit"
+runways = ["31L"]
+max_crosswind = 12
+
+[[LFML.unavailable]]
+runways = ["13R/31L"]
+when = "rvr < 800 or visibility < 800"
+note = "Secondary runway closed below 800 m RVR; visibility proxy"
+
+# Nice Cote d'Azur. 04 preferred; arrivals use the north runway and departures
+# the south runway (AD 2.21/2.22). In 22 configuration, ATC may use 22L for
+# all movements during turbulence; no automatic wind threshold is published.
+[LFMN.choice.10]
+name = "EAST"
+arr = ["04L"]
+dep = ["04R"]
+
+[LFMN.choice.20]
+name = "WEST"
+arr = ["22R"]
+dep = ["22L"]
+
+[LFMN.choice.30]
+note = "North runway only"
+runways = ["04L/22R"]
+
+[LFMN.choice.40]
+note = "South runway only"
+runways = ["04R/22L"]
+
+# Perpignan Rivesaltes. Use the principal 15/33, both ends with instrument
+# approaches; retain the 20 kt wet-runway crosswind limit (AD 2.22).
+[LFMP.choice.1]
+runways = ["15/33"]
+
+# Le Castellet. Both ends have instrument procedures.
+[LFMQ.choice.1]
+runways = ["12/30"]
+
+# Montpellier Mediterranee. Arrivals prefer 30R up to 8 kt tailwind.
+# Departures prefer 12L from 21:00-07:00 UTC winter (summer minus one hour),
+# i.e. 22:00-08:00 Europe/Paris year-round, with tailwind <= 5 kt and
+# visibility > 1900 m (AD 2.21.1). The split choices enforce the different
+# arrival/departure tailwind limits explicitly. Deliberate tailwind preference
+# must not be removed by the established-tailwind stability rule.
+# AD 2.22.4: landings prohibited below 750 m RVR (or failing that VIS),
+# departures below 400 m. The arrival-only minimum needs manual enforcement.
+[LFMT]
+lvo = "rvr < 800 or visibility < 800"
+established_tailwind_hours = 0
+
+[LFMT.choice.10]
+note = "Night over-sea arrivals and departures"
+arr = ["30R"]
+dep = ["12L"]
+max_tailwind = 8
+when = "time 22:00-08:00 and visibility > 1900 and tailwind 12L <= 5"
+
+[LFMT.choice.20]
+note = "Preferred arrival runway; departure tailwind limited to 5 kt"
+runways = ["30R"]
+
+[LFMT.choice.30]
+note = "Arrival preference retained between 5 and 8 kt tailwind"
+arr = ["30R"]
+dep = ["12L"]
+max_tailwind = 8
+when = "tailwind 30R > 5"
+
+[LFMT.choice.40]
+note = "Southeast configuration when arrival preference exceeds wind limit"
+runways = ["12L"]
+
+[[LFMT.unavailable]]
+runways = ["12L/30R"]
+when = "rvr < 400 or visibility < 400"
+note = "Neither arrivals nor departures permitted; conservative visibility proxy"
+
+# Beziers Vias. Both ends have instrument approaches.
+[LFMU.choice.1]
+runways = ["09/27"]
+
+# Avignon Caumont. Instrument approaches lead to 17; 35 requires VPT.
+[LFMV]
+instrument_approaches = ["17"]
+
+[LFMV.choice.1]
+runways = ["17/35"]
+
+# Lezignan-Corbieres. Principal paved runway; no published QFU preference.
+[LFMZ.choice.1]
+runways = ["08/26"]
+
+# Cuers Pierrefeu. QFU 108 preferred (VAC TXT).
+[LFTF.choice.1]
+note = "Published preferred QFU"
+runways = ["11"]
+
+[LFTF.choice.2]
+runways = ["29"]
+
+# Hyeres Le Palyvestre. 05/23 preferred for departures whenever weather
+# permits (AD 2.21, VAC TXT). Instrument approaches lead to 05 (AD 2.24).
+# Keep the conservative 20 kt wet-runway crosswind limit; the published
+# limit is based on mean wind, while the schema also includes gusts.
+[LFTH]
+instrument_approaches = ["05"]
+
+[LFTH.choice.1]
+note = "Preferred departure runway, into wind; instrument arrivals 05"
+runways = ["05/23"]
+
+[LFTH.choice.2]
+note = "Secondary runway, into wind"
+runways = ["13/31"]
+
+# Nimes Garons. Both ends have instrument approaches.
+[LFTW.choice.1]
+runways = ["18/36"]
