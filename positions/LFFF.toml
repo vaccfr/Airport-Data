@@ -34,8 +34,6 @@ airports = [
   "LFPL",
   "LFPZ",
   "LFPV",
-  { icao = "LFPE", atis = false },
-  { icao = "LFPX", atis = false },
 ]
 
 [[position]]
