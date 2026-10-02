@@ -46,7 +46,7 @@ airports = [
 ]
 
 [[position]]
-match = ["LFEE_CTR", "LFEE_*_CTR"]
+match = ["LFEE_CTR", "LFEE_4EH_CTR", "LFEE_RME_CTR"]
 airports = [
   "LFSB",
   "LFST",

@@ -76,7 +76,7 @@ airports = [
 ]
 
 [[position]]
-match = ["PAR_CTR", "PAR_*_CTR"]
+match = ["PAR_CTR", "PAR_LOW_CTR"]
 airports = [
   "LFPG",
   "LFPO",
@@ -101,5 +101,40 @@ airports = [
   { icao = "LFOQ", atis = false },
   { icao = "LFAQ", atis = false },
   { icao = "LFLA", atis = false },
+  { icao = "LFOJ", atis = false },
+]
+
+[[position]]
+match = ["PAR_RPAE_CTR"]
+airports = [
+  "LFPG",
+  "LFPO",
+  "LFOB",
+  "LFPB",
+  "LFPN",
+  "LFOK",
+  "LFPT",
+  "LFPM",
+  "LFPL",
+  { icao = "LFPV", atis = false },
+  { icao = "LFQA", atis = false },
+  { icao = "LFQB", atis = false },
+  { icao = "LFAQ", atis = false },
+  { icao = "LFLA", atis = false },
+  { icao = "LFOJ", atis = false },
+]
+
+[[position]]
+match = ["PAR_RPAW_CTR"]
+airports = [
+  "LFQQ",
+  "LFQT",
+  { icao = "LFAT", atis = false },
+  { icao = "LFOT", atis = false },
+  { icao = "LFAC", atis = false },
+  { icao = "LFAV", atis = false },
+  { icao = "LFOZ", atis = false },
+  { icao = "LFOQ", atis = false },
+  { icao = "LFAQ", atis = false },
   { icao = "LFOJ", atis = false },
 ]
