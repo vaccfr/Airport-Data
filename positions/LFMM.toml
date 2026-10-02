@@ -88,7 +88,7 @@ airports = [
   { icao = "LFMZ", atis = false },
 ]
 [[position]]
-match = ["LFMM_CTR"]
+match = ["LFMM_CTR", "LFMM_*_CTR"]
 airports = [
   "LFMN",
   "LFML",

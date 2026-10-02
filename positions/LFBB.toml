@@ -20,8 +20,8 @@
 match = ["LFBD_*_APP"]
 airports = [
   "LFBD",
-  "LFBE",
   "LFBH",
+  "LFBE",
   { icao = "LFBS", atis = false },
   { icao = "LFBX", atis = false },
   { icao = "LFCH", atis = false },
@@ -56,9 +56,9 @@ airports = [
 [[position]]
 match = ["LFBO_*_APP"]
 airports = [
-  "LFBA",
   "LFBO",
   "LFMK",
+  "LFBA",
   { icao = "LFBF", atis = false },
   { icao = "LFBR", atis = false },
   { icao = "LFCC", atis = false },
@@ -72,9 +72,9 @@ note = "Toulouse approach area. Every sector sets all these runways, since each 
 [[position]]
 match = ["LFBP_APP", "LFBP_*_APP"]
 airports = [
+  "LFBZ",
   "LFBP",
   "LFBT",
-  "LFBZ",
   { icao = "LFDH", atis = false },
   { icao = "LFBY", atis = false },
 ]
@@ -89,17 +89,17 @@ airports = [
 [[position]]
 match = ["LFBB_CTR", "LFBB_*_CTR"]
 airports = [
-  "LFBD",
   "LFBO",
-  "LFBH",
+  "LFBD",
   "LFBZ",
-  "LFMK",
-  "LFBE",
-  "LFBI",
-  "LFBL",
-  "LFBA",
   "LFBP",
+  "LFBH",
+  "LFMK",
+  "LFBL",
+  "LFBI",
   "LFBT",
+  "LFBE",
+  "LFBA",
   "LFBU",
   { icao = "LFBF", atis = false },
   { icao = "LFBK", atis = false },
