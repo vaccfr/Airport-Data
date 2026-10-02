@@ -186,12 +186,3 @@ runways = ["09"]
 
 [LFDJ.choice.2]
 runways = ["27"]
-
-# Cahors. Only 13 has an instrument approach (RNP: AD 2.24). The unpaved
-# runway 13L/31R closes after heavy rain (AD 2.20).
-[LFCC.choice.1]
-note = "Only runway with an instrument approach"
-runways = ["13"]
-
-[LFCC.choice.2]
-runways = ["31"]
