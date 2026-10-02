@@ -74,7 +74,9 @@ match = ["LFBP_APP", "LFBP_*_APP"]
 airports = [
   "LFBP",
   "LFBT",
+  "LFBZ",
   { icao = "LFDH", atis = false },
+  { icao = "LFBY", atis = false },
 ]
 
 [[position]]
@@ -82,4 +84,39 @@ match = ["LFBZ_APP", "LFBZ_*_APP"]
 airports = [
   "LFBZ",
   { icao = "LFBY", atis = false },
+]
+
+[[position]]
+match = ["LFBB_CTR"]
+airports = [
+  "LFBD",
+  "LFBO",
+  "LFBH",
+  "LFBZ",
+  "LFMK",
+  "LFBE",
+  "LFBI",
+  "LFBL",
+  "LFBA",
+  "LFBP",
+  "LFBT",
+  "LFBU",
+  { icao = "LFBF", atis = false },
+  { icao = "LFBK", atis = false },
+  { icao = "LFBN", atis = false },
+  { icao = "LFBR", atis = false },
+  { icao = "LFBS", atis = false },
+  { icao = "LFBX", atis = false },
+  { icao = "LFBY", atis = false },
+  { icao = "LFCC", atis = false },
+  { icao = "LFCH", atis = false },
+  { icao = "LFCI", atis = false },
+  { icao = "LFCK", atis = false },
+  { icao = "LFCL", atis = false },
+  { icao = "LFCY", atis = false },
+  { icao = "LFDH", atis = false },
+  { icao = "LFDJ", atis = false },
+  { icao = "LFDN", atis = false },
+  { icao = "LFLX", atis = false },
+  { icao = "LFSL", atis = false },
 ]
