@@ -1,11 +1,12 @@
 #:schema ../schemas/positions.schema.json
 # Paris FIR.
 #
-# Each entry lists the airports a position is responsible for, most important
+# Each entry lists the airports a position controls, top-down, most important
 # first. Only the first four that publish an ATIS can be on at once, so the
-# order is the priority. An airport with `atis = false` keeps its runway
-# configuration without an ATIS, for a field in the area that gets no top-down
-# service. See the README for the full format.
+# order is the priority. `atis = false` leaves the ATIS off a field the
+# position controls. Fields somebody else controls, whose runways the position
+# still needs for its arrivals, go in `runways_only`: they are active for
+# arrivals only and never get an ATIS. See the README for the full format.
 #
 # Tower, ground, delivery and ramp are not listed: they are responsible for the
 # airport their callsign names, and need no entry.
