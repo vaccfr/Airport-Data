@@ -167,7 +167,7 @@ The configuration in use stays while it is usable. Going back to a better choice
 
 ## Control positions
 
-`positions/<FIR>.toml` says which airports a control position is responsible for. CoStarter reads it to set up a session: it writes the position's login details into EuroScope, sets the runways of every airport listed, and offers an ATIS for those that publish one.
+`positions/<FIR>.toml` says which airports a control position is responsible for, and on what terms. CoStarter reads it to set up a session: it writes the position's login details into EuroScope, sets the runways of every airport listed, and offers an ATIS for the airports the position controls.
 
 Each file starts with this line, which gives validation and help in editors that support it:
 
@@ -186,9 +186,12 @@ airports = ["LFBO", "LFBA", "LFMK"]
 | Key | | |
 |---|---|---|
 | `match` | required | Callsigns this entry covers. `*` matches any run of characters |
-| `airports` | required | Airports in the area, most important first |
+| `airports` | see below | Airports the position controls, top-down, most important first |
+| `runways_only` | see below | Airports somebody else controls, whose runways the position needs for its arrivals |
 | `profile` | optional | EuroScope profile name, where it cannot be worked out from the callsign |
 | `note` | optional | Free text, for example the agreement this follows |
+
+An entry needs `airports`, `runways_only` or both.
 
 ### Matching callsigns
 
@@ -196,17 +199,28 @@ airports = ["LFBO", "LFBA", "LFMK"]
 
 An exact callsign always wins over a pattern that also covers it, and between patterns the one with fewer wildcards wins, then the longer one. A single split can therefore be given its own entry without being carved out of the family pattern it falls under.
 
-### Priority and ATIS
+### Controlled airports and runways only
 
-Only four ATIS can be published at once, so `airports` is an order rather than a set: the first four that publish one are what the controller is offered.
+A position relates to an airport in one of two ways.
 
-An airport can be in the area without getting top-down service. Mark it `atis = false` and its runways are still configured, which is what a position needs when it has to hold the configuration of a neighbouring field without serving it.
+- **It controls it**, top-down: the airport goes in `airports`. Its runways are set for departures and arrivals, and its ATIS can be run from this position.
+- **Somebody else controls it**, but the position still needs its runways so that its arrivals are configured in the EuroScope tags: the airport goes in `runways_only`. It is set active for arrivals only, with its arrival runways, and never gets an ATIS from this position, because running an ATIS needs top-down.
 
 ```toml
 [[position]]
-match = ["LFPO_APP", "LFPO_DEP", "LFPO_*_APP"]
-airports = ["LFPO", { icao = "LFPN", atis = false }]
+match = ["PAR_APTE_CTR"]
+runways_only = ["LFPG"]
 ```
+
+An airport is in one list or the other, never both.
+
+Centre positions list in `airports` every field they control when no approach is open beneath them. PAR_CTR therefore lists LFPG, which it controls top-down while Roissy approach is closed.
+
+### Priority and ATIS
+
+Only four ATIS can be published at once, so `airports` is an order rather than a set: the first four that publish one are what the controller is offered. `runways_only` takes no part in it.
+
+A controlled airport whose ATIS this position should not run is written as a table, `{ icao = "LFAT", atis = false }`. Its runways are still set both ways, since the position still controls it. An airport vATIS has no station for needs no mark: there is no ATIS to offer anyway.
 
 Airports that must face the same way are linked in [`runway-use/`](#linked-airports-and-weather-stations) with `follow`, not here: that link holds whoever is controlling.
 
