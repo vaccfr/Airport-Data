@@ -24,6 +24,7 @@
             "minLength": 1
           },
           "airports": {
+            "description": "Airports this position controls, top-down, most important first. Only the first four that publish an ATIS can be turned on at once, so the order is the priority.",
             "minItems": 1,
             "type": "array",
             "items": {
@@ -40,7 +41,7 @@
                       "pattern": "^[A-Z0-9]{4}$"
                     },
                     "atis": {
-                      "description": "Whether this position publishes an ATIS here. Default true. False keeps the runways without the ATIS, for an airport inside the area that gets no top-down service.",
+                      "description": "Whether this position publishes an ATIS here. Default true. False is for a field it controls without running its ATIS.",
                       "type": "boolean"
                     }
                   },
@@ -50,8 +51,16 @@
                   "additionalProperties": false
                 }
               ]
-            },
-            "description": "Airports in the area, most important first. Only the first four that publish an ATIS can be turned on at once, so the order is the priority."
+            }
+          },
+          "runways_only": {
+            "description": "Airports somebody else controls whose runways this position still needs, so that its arrivals are configured in the EuroScope tags. They are active for arrivals only and never get an ATIS.",
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Z0-9]{4}$"
+            }
           },
           "note": {
             "description": "Free text, for example the agreement this follows.",
@@ -59,8 +68,7 @@
           }
         },
         "required": [
-          "match",
-          "airports"
+          "match"
         ],
         "additionalProperties": false
       },
