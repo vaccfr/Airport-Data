@@ -4024,6 +4024,7 @@
               "frequency": "118.650",
               "solo_rating": "S1",
               "position_type": "TWR",
+              "s1_tower": true,
               "allowed_ratings": [
                 "S2",
                 "S3",
@@ -7141,6 +7142,7 @@
               "frequency": "119.300",
               "solo_rating": "S1",
               "position_type": "TWR",
+              "s1_tower": true,
               "allowed_ratings": [
                 "S2",
                 "S3",
