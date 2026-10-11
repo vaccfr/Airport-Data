@@ -101,12 +101,13 @@ when = "time 22:00-06:00 and wind < 5"
 |---|---|
 | `crosswind 05/23 >= 15`, `tailwind 23 > 5`, `headwind 27 < 3` | Wind component on a runway, in kt. Crosswind also accepts a runway pair |
 | `wind < 5` | Wind speed in kt, gusts included |
+| `wind from 000-135`, `wind from 341-159` | Wind direction in degrees, as in the METAR, both ends included. A range may cross north |
 | `visibility < 1500`, `rvr < 550`, `ceiling < 300` | Metres, metres, feet |
 | `lvo` | Low-visibility operations (see below) |
 | `time 22:00-06:00` | Local time of the airport, may cross midnight |
 | `and`, `or`, `not`, `( )` | Combine conditions |
 
-Comparisons are `<`, `<=`, `>` and `>=`. A value that is not reported (no RVR, no METAR…) makes its comparison false. The absence of a ceiling counts as an infinitely high ceiling. `lvo` can be defined in `[defaults]` or on an airport and defaults to `rvr < 550 or visibility < 550 or ceiling < 200`.
+Comparisons are `<`, `<=`, `>` and `>=`. A value that is not reported (no RVR, no METAR…) makes its comparison false. The absence of a ceiling counts as an infinitely high ceiling. A calm or variable wind has no direction, so no `wind from` range holds for it; METARs report north as 360, so `000-135` stops short of north and `316-360` reaches it. `lvo` can be defined in `[defaults]` or on an airport and defaults to `rvr < 550 or visibility < 550 or ceiling < 200`.
 
 ### Unavailable runways
 
@@ -134,6 +135,15 @@ metar = ["LFPN", "LFPV"]      # first fresh METAR is used
 ```
 
 `follow` takes priority over the wind: only a closed runway can prevent it. Without `metar`, an airport uses its own METAR, else the nearest one within 30 NM.
+
+An airport that faces its neighbour's way only in some conditions gives `follow` a condition:
+
+```toml
+[LFPO]
+follow = { icao = "LFPG", when = "wind < 5" }   # LFPG's way in light winds
+```
+
+While the condition holds, the airport follows as above. Otherwise it is decided by its own choices, as if it had no `follow`. The condition is evaluated on the airport's own weather, like any `when`.
 
 ### Instrument approaches
 
