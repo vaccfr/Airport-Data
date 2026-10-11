@@ -1,33 +1,241 @@
 #:schema ../schemas/runway-use.schema.json
 # Paris FIR.
 #
-# To be confirmed by the maintainers: the configurations below are a first
-# version and have not been checked against the local procedures yet.
+# Choices are read by number: 1 is the first choice, and the first usable one
+# is used. See the README for every setting and the condition language.
+#
+# Sources: the eAIP of 01 OCT 2026 (AIRAC 2610) and SUP AIP 085/26 and 192/26.
+# Section numbers refer to each airport's AD 2 page; airports without one are
+# described by their VAC.
 
 [defaults]
 timezone = "Europe/Paris"
+max_tailwind = 5          # kt, gusts included
+max_crosswind = 20        # kt, gusts included
 
-[LFPG.choice.1]
+# ---------------------------------------------------------------------------
+# Roissy approach
+# ---------------------------------------------------------------------------
+
+# Paris-Charles de Gaulle. The outer runways (08R/26L, 09L/27R) take the
+# arrivals and the inner ones (08L/26R, 09R/27L) the departures
+# (AD 2.20.3.2.1). From 0000 to 0500 local every take-off and landing is
+# westward while the tailwind is 1 kt or less (AD 2.22.4.1). No preferred
+# direction is published by day; west comes first, as at night. LVP starts at
+# RVR 600 m or cloud base 200 ft (AD 2.22.8) and changes no runway: every end
+# has a CAT III ILS (AD 2.19).
+#
+# When a runway is closed, the other runway of its pair takes its traffic.
+[LFPG]
+lvo = "rvr <= 600 or visibility <= 600 or ceiling < 200"
+
+[LFPG.choice.10]
+name = "NIGHT WEST"
+arr = ["26L", "27R"]
+dep = ["26R", "27L"]
+when = "time 00:00-05:00"
+max_tailwind = 1
+established_tailwind_hours = 0
+
+[LFPG.choice.20]
 name = "WEST"
 arr = ["26L", "27R"]
 dep = ["26R", "27L"]
 
-[LFPG.choice.2]
+[LFPG.choice.21]
+name = "WEST, 26R MIXED"
+arr = ["26R", "27R"]
+dep = ["26R", "27L"]
+
+[LFPG.choice.22]
+name = "WEST, 26L MIXED"
+arr = ["26L", "27R"]
+dep = ["26L", "27L"]
+
+[LFPG.choice.23]
+name = "WEST, 27L MIXED"
+arr = ["26L", "27L"]
+dep = ["26R", "27L"]
+
+[LFPG.choice.24]
+name = "WEST, 27R MIXED"
+arr = ["26L", "27R"]
+dep = ["26R", "27R"]
+
+[LFPG.choice.30]
 name = "EAST"
 arr = ["08R", "09L"]
 dep = ["08L", "09R"]
 
-[LFPO.choice.1]
+[LFPG.choice.31]
+name = "EAST, 08L MIXED"
+arr = ["08L", "09L"]
+dep = ["08L", "09R"]
+
+[LFPG.choice.32]
+name = "EAST, 08R MIXED"
+arr = ["08R", "09L"]
+dep = ["08R", "09R"]
+
+[LFPG.choice.33]
+name = "EAST, 09R MIXED"
+arr = ["08R", "09R"]
+dep = ["08L", "09R"]
+
+[LFPG.choice.34]
+name = "EAST, 09L MIXED"
+arr = ["08R", "09L"]
+dep = ["08L", "09L"]
+
+# Paris-Le Bourget faces the same way as Roissy. 27 is for landings only and
+# 09 for take-offs only (AD 2.13, AD 2.22.1.1): west lands on 27 and departs
+# from 25, east lands on 07 and departs from 09 (AD 2.22.2.2.2, 2.22.3.2.3).
+# Jets departing from 2115 to 0500 UTC (2215 to 0600 local) use 07 if possible
+# (AD 2.21.2.1). 21 is used only exceptionally and 03 has no instrument
+# procedure, so neither is offered.
+[LFPB]
+follow = "LFPG"
+
+[LFPB.choice.10]
+name = "EAST NIGHT"
+note = "Night jet departures on 07"
+runways = ["07"]
+when = "time 22:15-06:00"
+
+[LFPB.choice.20]
+name = "WEST"
+arr = ["27"]
+dep = ["25"]
+
+[LFPB.choice.30]
+name = "EAST"
+arr = ["07"]
+dep = ["09"]
+
+[LFPB.choice.40]
+name = "WEST, 25 ONLY"
+note = "When 27 is unavailable"
+runways = ["25"]
+
+[LFPB.choice.50]
+name = "EAST, 07 ONLY"
+note = "When 09 is unavailable"
+runways = ["07"]
+
+# Pontoise. Only 04/22 has instrument approaches (RNP, AD 2.24), so arrivals
+# stay on it; 12/30 is the crosswind runway. No preferred direction is
+# published.
+[LFPT]
+instrument_approaches = ["04", "22"]
+
+[LFPT.choice.1]
+runways = ["04/22"]
+
+[LFPT.choice.2]
+runways = ["12/30"]
+
+# ---------------------------------------------------------------------------
+# Orly approach
+# ---------------------------------------------------------------------------
+
+# Paris-Orly. West departs from 24 and lands on 25, east departs from 07 and
+# lands on 06 (AD 2.21.2.1). 02/20 is only a complement when a main runway is
+# unavailable (AD 2.21.2.1): with 06/24 closed, west lands on 25 and departs
+# from 20 (SUP AIP 085/26) and east lands on 02 and departs from 07. 02 is
+# CAT I only and closed to IFR take-offs (AD 2.13, AD 2.19).
+#
+# The vACC sets Orly's direction from the wind and from Roissy's:
+#
+#   wind 0-4 kt                       as LFPG
+#   wind 5-11 kt from 000-135         east
+#                from 136-180         as LFPG
+#                from 181-315         west
+#                from 316-360         as LFPG
+#   wind 12 kt or more from 341-159   east
+#                      from 160-340   west
+#
+# `follow` carries the "as LFPG" rows. Each choice is limited to the winds in
+# which its direction is allowed: following Roissy, or the table's own sector
+# for that direction. While Orly follows, both directions are allowed and
+# Roissy's decides; otherwise only one is.
+#
+# Not used: the AIP's night rule, where from 2330 to 0600 take-offs go west and
+# landings east (AD 2.21.2.2), since the table never leaves Orly facing two
+# ways; and 02/20 in strong north or south winds, for which no threshold is
+# published.
+[LFPO]
+follow = { icao = "LFPG", when = "wind < 5 or (wind < 12 and (wind from 136-180 or wind from 316-360))" }
+lvo = "rvr <= 600 or visibility <= 600 or ceiling <= 200"
+
+[LFPO.choice.10]
 name = "WEST"
 arr = ["25"]
 dep = ["24"]
+when = "wind < 5 or (wind < 12 and wind from 136-360) or wind from 160-340"
 
-[LFPO.choice.2]
+[LFPO.choice.11]
+name = "WEST 25/20"
+note = "06/24 unavailable: crossing runways"
+arr = ["25"]
+dep = ["20"]
+when = "wind < 5 or (wind < 12 and wind from 136-360) or wind from 160-340"
+
+[LFPO.choice.12]
+name = "WEST, 25 ONLY"
+note = "06/24 unavailable and 20 unusable"
+runways = ["25"]
+when = "wind < 5 or (wind < 12 and wind from 136-360) or wind from 160-340"
+
+[LFPO.choice.13]
+name = "WEST, 24 ONLY"
+note = "07/25 unavailable"
+runways = ["24"]
+when = "wind < 5 or (wind < 12 and wind from 136-360) or wind from 160-340"
+
+[LFPO.choice.20]
 name = "EAST"
 arr = ["06"]
 dep = ["07"]
+when = "wind < 5 or (wind < 12 and wind from 316-180) or wind from 341-159"
 
-# Toussus faces the same way as Orly.
+[LFPO.choice.21]
+name = "EAST 02/07"
+note = "06/24 unavailable: 02 complements 07"
+arr = ["02"]
+dep = ["07"]
+when = "wind < 5 or (wind < 12 and wind from 316-180) or wind from 341-159"
+
+[LFPO.choice.22]
+name = "EAST, 07 ONLY"
+note = "06/24 unavailable and 02 unusable (LVP or wind)"
+runways = ["07"]
+when = "wind < 5 or (wind < 12 and wind from 316-180) or wind from 341-159"
+
+[LFPO.choice.23]
+name = "EAST, 06 ONLY"
+note = "07/25 unavailable"
+runways = ["06"]
+when = "wind < 5 or (wind < 12 and wind from 316-180) or wind from 341-159"
+
+[LFPO.choice.90]
+name = "NO WIND DIRECTION"
+note = "Variable or unreported wind of 5 kt or more"
+runways = ["07/25"]
+
+[[LFPO.unavailable]]
+runways = ["06/24"]
+from = 2026-08-09T22:00:00Z
+to = 2026-12-17T23:00:00Z
+note = "Works, SUP AIP 085/26 and 192/26. SUP 192/26 allows phases by NOTAM until 10 JUN 2027"
+
+[[LFPO.unavailable]]
+runways = ["02"]
+when = "lvo"
+note = "CAT I only"
+
+# Paris-Saclay Versailles (Toussus) faces the same way as Orly. 07L/25R is the
+# instrument runway and the only one usable in LVP (AD 2.22.3.10); 07R/25L has
+# no instrument procedure and is offered only when 07L/25R is unavailable.
 [LFPN]
 metar = ["LFPN", "LFPV"]
 follow = "LFPO"
@@ -37,3 +245,60 @@ runways = ["07L/25R"]
 
 [LFPN.choice.2]
 runways = ["07R/25L"]
+
+[[LFPN.unavailable]]
+runways = ["07R/25L"]
+when = "lvo"
+note = "LVP on 07L/25R only"
+
+# Villacoublay faces the same way as Orly.
+[LFPV]
+follow = "LFPO"
+
+[LFPV.choice.1]
+runways = ["09/27"]
+
+# Saint-Cyr-l'École. QFU 292° is preferred, landings on 11L/29R and take-offs
+# from 11R/29L, and before 0800 UTC in winter (0700 in summer) 29R is used
+# for both (VAC TXT 04). The VAC gives these under the instructions for when
+# the tower is closed; they are kept for every hour.
+[LFPZ.choice.10]
+name = "29R ONLY"
+runways = ["29R"]
+when = "time 00:00-09:00"
+
+[LFPZ.choice.20]
+name = "29"
+arr = ["29R"]
+dep = ["29L"]
+
+[LFPZ.choice.30]
+name = "11"
+arr = ["11L"]
+dep = ["11R"]
+
+# Lognes-Emerainville. QFU 080° is preferred for its better clearances (VAC
+# TXT 03, under the instructions for when the tower is closed; kept for every
+# hour). The paved runway 08/26 is used; the VAC gives no rule for the unpaved
+# 08R/26L.
+[LFPL.choice.1]
+runways = ["08"]
+
+[LFPL.choice.2]
+runways = ["26"]
+
+# ---------------------------------------------------------------------------
+# Beauvais approach
+# ---------------------------------------------------------------------------
+
+# Beauvais-Tillé. 12/30 faces into the wind; no preferred direction is
+# published. In LVP only 12 can be used: its ILS is CAT III, 30's is CAT I.
+# LVP starts at RVR 550 m or ceiling 200 ft, the default (AD 2.22.2). 04/22 is a 708 m light-aircraft strip, closed at night and below
+# 1500 m visibility (AD 2.20), and is not offered.
+[LFOB.choice.10]
+name = "LVP"
+runways = ["12"]
+when = "lvo"
+
+[LFOB.choice.20]
+runways = ["12/30"]
