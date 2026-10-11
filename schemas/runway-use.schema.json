@@ -100,9 +100,33 @@
         }
       },
       "follow": {
-        "description": "Leader airport: this airport must face the same direction.",
-        "type": "string",
-        "pattern": "^[A-Z0-9]{4}$"
+        "description": "Leader airport: this airport must face the same direction. A table { icao, when } follows only while the condition holds.",
+        "anyOf": [
+          {
+            "type": "string",
+            "pattern": "^[A-Z0-9]{4}$"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "icao": {
+                "type": "string",
+                "pattern": "^[A-Z0-9]{4}$",
+                "description": "Leader airport."
+              },
+              "when": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Follow only while this holds; otherwise the airport is decided by its own choices."
+              }
+            },
+            "required": [
+              "icao",
+              "when"
+            ],
+            "additionalProperties": false
+          }
+        ]
       },
       "instrument_approaches": {
         "description": "Runway ends with a published instrument approach. Where set, arrivals are confined to them whatever the wind, so the procedures load; the other direction is flown visually or circling. Omit when every end has one.",
