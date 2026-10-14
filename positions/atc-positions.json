@@ -89,7 +89,7 @@
               "icao": "LFAT",
               "position_code": "LFAT_TWR",
               "callsign": "Le Touquet Tower",
-              "frequency": "118.450",
+              "frequency": "118.455",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -167,10 +167,10 @@
           "atis": "",
           "positions": [
             {
-              "icao": "LFLA",
-              "position_code": "LFLA_I_TWR",
-              "callsign": "Auxerre Information",
-              "frequency": "129.805",
+              "icao": "LFLD",
+              "position_code": "LFLD_I_TWR",
+              "callsign": "Bourges Information",
+              "frequency": "119.600",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -239,7 +239,7 @@
               "icao": "LFOB",
               "position_code": "LFOB_TWR",
               "callsign": "Beauvais Tower",
-              "frequency": "121.400",
+              "frequency": "121.405",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -358,6 +358,33 @@
               "solo_rating": "S2",
               "position_type": "APP",
               "allowed_ratings": [
+                "S3",
+                "C1",
+                "C3",
+                "I1",
+                "I3"
+              ]
+            }
+          ]
+        },
+        {
+          "icao": "LFOK",
+          "name": "CHALONS/VATRY",
+          "city": "",
+          "state": "",
+          "lat": 48.773333,
+          "lon": 4.206111,
+          "atis": "",
+          "positions": [
+            {
+              "icao": "LFOK",
+              "position_code": "LFOK_TWR",
+              "callsign": "Vatry Tower",
+              "frequency": "129.405",
+              "solo_rating": "S1",
+              "position_type": "TWR",
+              "allowed_ratings": [
+                "S2",
                 "S3",
                 "C1",
                 "C3",
@@ -753,7 +780,7 @@
               "icao": "LFPG",
               "position_code": "LFPG_N_TWR",
               "callsign": "De Gaulle Tower",
-              "frequency": "119.250",
+              "frequency": "119.255",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -769,7 +796,7 @@
               "icao": "LFPG",
               "position_code": "LFPG_S_TWR",
               "callsign": "De Gaulle Tower",
-              "frequency": "120.900",
+              "frequency": "120.905",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -830,7 +857,7 @@
               "icao": "LFPG",
               "position_code": "LFPG_FS_APP",
               "callsign": "De Gaulle Arrival",
-              "frequency": "118.150",
+              "frequency": "118.155",
               "solo_rating": "S2",
               "position_type": "APP",
               "allowed_ratings": [
@@ -930,7 +957,7 @@
               "icao": "LFPM",
               "position_code": "LFPM_TWR",
               "callsign": "Melun Tower",
-              "frequency": "121.100",
+              "frequency": "121.105",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -991,7 +1018,7 @@
               "icao": "LFPM",
               "position_code": "LFPM_ISK_APP",
               "callsign": "Seine Approach",
-              "frequency": "120.325",
+              "frequency": "120.330",
               "solo_rating": "S2",
               "position_type": "APP",
               "allowed_ratings": [
@@ -1047,7 +1074,7 @@
               "icao": "LFPN",
               "position_code": "LFPN_GND",
               "callsign": "Toussus Ground",
-              "frequency": "120.750",
+              "frequency": "122.130",
               "solo_rating": "",
               "position_type": "GND",
               "allowed_ratings": [
@@ -1064,7 +1091,7 @@
               "icao": "LFPN",
               "position_code": "LFPN_I_TWR",
               "callsign": "Chevreuse Information",
-              "frequency": "119.300",
+              "frequency": "119.305",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -1080,7 +1107,7 @@
               "icao": "LFPN",
               "position_code": "LFPN_TWR",
               "callsign": "Toussus Tower",
-              "frequency": "120.750",
+              "frequency": "120.755",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -1141,7 +1168,7 @@
               "icao": "LFPO",
               "position_code": "LFPO_TWR",
               "callsign": "Orly Tower",
-              "frequency": "118.700",
+              "frequency": "118.705",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -1157,7 +1184,7 @@
               "icao": "LFPO",
               "position_code": "LFPO_DEP",
               "callsign": "Orly Departure",
-              "frequency": "127.750",
+              "frequency": "127.755",
               "solo_rating": "S2",
               "position_type": "DEP",
               "allowed_ratings": [
@@ -1172,7 +1199,7 @@
               "icao": "LFPO",
               "position_code": "LFPO_F_APP",
               "callsign": "Orly Arrival",
-              "frequency": "124.450",
+              "frequency": "124.455",
               "solo_rating": "S2",
               "position_type": "APP",
               "allowed_ratings": [
@@ -1187,7 +1214,7 @@
               "icao": "LFPO",
               "position_code": "LFPO_APP",
               "callsign": "Orly Approach",
-              "frequency": "123.875",
+              "frequency": "123.880",
               "solo_rating": "S2",
               "position_type": "APP",
               "allowed_ratings": [
@@ -1207,13 +1234,13 @@
           "state": "Ile-de-France",
           "lat": 49.096666666667,
           "lon": 2.0408333333333,
-          "atis": "124.125",
+          "atis": "124.130",
           "positions": [
             {
               "icao": "LFPT",
               "position_code": "LFPT_TWR",
               "callsign": "Pontoise Tower",
-              "frequency": "121.200",
+              "frequency": "121.205",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -1264,7 +1291,7 @@
           "state": "Ile-de-France",
           "lat": 48.774166666667,
           "lon": 2.1913888888889,
-          "atis": "124.125",
+          "atis": "",
           "positions": [
             {
               "icao": "LFPV",
@@ -1346,7 +1373,7 @@
               "icao": "LFPX",
               "position_code": "LFPX_TWR",
               "callsign": "Chavenay Tower",
-              "frequency": "120.525",
+              "frequency": "129.525",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -1371,9 +1398,9 @@
           "positions": [
             {
               "icao": "LFPZ",
-              "position_code": "LFPX_GND",
+              "position_code": "LFPZ_GND",
               "callsign": "Saint Cyr Ground",
-              "frequency": "118.000",
+              "frequency": "121.950",
               "solo_rating": "",
               "position_type": "GND",
               "allowed_ratings": [
@@ -1388,9 +1415,9 @@
             },
             {
               "icao": "LFPZ",
-              "position_code": "LFPX_TWR",
+              "position_code": "LFPZ_TWR",
               "callsign": "Saint Cyr Tower",
-              "frequency": "121.950",
+              "frequency": "118.000",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -1488,7 +1515,7 @@
               "icao": "LFQQ",
               "position_code": "LFQQ_TWR",
               "callsign": "Lille Tower",
-              "frequency": "118.550",
+              "frequency": "118.555",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -1607,7 +1634,7 @@
               "icao": "LFQT",
               "position_code": "LFQT_TWR",
               "callsign": "Merville Tower",
-              "frequency": "119.075",
+              "frequency": "119.080",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -1838,7 +1865,7 @@
           "position_code": "PAR_HPKZ_CTR",
           "position_type": "CTR",
           "callsign": "Paris Control",
-          "frequency": "129.005",
+          "frequency": "132.680",
           "allowed_ratings": [
             "C1",
             "C3",
@@ -2182,6 +2209,34 @@
             "I3"
           ],
           "solo_rating": "S3"
+        },
+        {
+          "icao": "LFFF",
+          "position_code": "PAR_LOW_CTR",
+          "position_type": "CTR",
+          "callsign": "Paris Control",
+          "frequency": "135.410",
+          "allowed_ratings": [
+            "C1",
+            "C3",
+            "I1",
+            "I3"
+          ],
+          "solo_rating": "S3"
+        },
+        {
+          "icao": "LFFF",
+          "position_code": "PAR_UK_CTR",
+          "position_type": "CTR",
+          "callsign": "Paris Control",
+          "frequency": "129.005",
+          "allowed_ratings": [
+            "C1",
+            "C3",
+            "I1",
+            "I3"
+          ],
+          "solo_rating": "S3"
         }
       ]
     },
@@ -2444,7 +2499,7 @@
               "icao": "LFQP",
               "position_code": "LFQP_APP",
               "callsign": "Phalsbourg Approach",
-              "frequency": "118.350",
+              "frequency": "118.450",
               "solo_rating": "S2",
               "position_type": "APP",
               "allowed_ratings": [
@@ -2504,7 +2559,7 @@
               "icao": "LFSB",
               "position_code": "LFSB_TWR",
               "callsign": "Bale Tower",
-              "frequency": "118.300",
+              "frequency": "118.305",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -2717,7 +2772,7 @@
               "icao": "LFSO",
               "position_code": "LFSO_APP",
               "callsign": "Ochey Approach",
-              "frequency": "122.300",
+              "frequency": "123.300",
               "solo_rating": "S2",
               "position_type": "APP",
               "allowed_ratings": [
@@ -2911,7 +2966,7 @@
           "position_code": "LFEE_HH_CTR",
           "position_type": "CTR",
           "callsign": "Reims Control",
-          "frequency": "128.875",
+          "frequency": "128.835",
           "allowed_ratings": [
             "C1",
             "C3",
@@ -2939,7 +2994,7 @@
           "position_code": "LFEE_HR_CTR",
           "position_type": "CTR",
           "callsign": "Reims Control",
-          "frequency": "125.975",
+          "frequency": "125.935",
           "allowed_ratings": [
             "C1",
             "C3",
@@ -3034,38 +3089,10 @@
         },
         {
           "icao": "LFEE",
-          "position_code": "LFEE_N_CTR",
-          "position_type": "CTR",
-          "callsign": "Reims Control",
-          "frequency": "127.555",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFEE",
-          "position_code": "LFEE_S_CTR",
-          "position_type": "CTR",
-          "callsign": "Reims Control",
-          "frequency": "135.105",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFEE",
           "position_code": "LFEE_UB_CTR",
           "position_type": "CTR",
           "callsign": "Reims Control",
-          "frequency": "133.010",
+          "frequency": "132.630",
           "allowed_ratings": [
             "C1",
             "C3",
@@ -3079,7 +3106,7 @@
           "position_code": "LFEE_UE_CTR",
           "position_type": "CTR",
           "callsign": "Reims Control",
-          "frequency": "127.570",
+          "frequency": "127.555",
           "allowed_ratings": [
             "C1",
             "C3",
@@ -3199,6 +3226,48 @@
             "I3"
           ],
           "solo_rating": "S3"
+        },
+        {
+          "icao": "LFEE",
+          "position_code": "LFEE_4EH_CTR",
+          "position_type": "CTR",
+          "callsign": "Reims Control",
+          "frequency": "136.330",
+          "allowed_ratings": [
+            "C1",
+            "C3",
+            "I1",
+            "I3"
+          ],
+          "solo_rating": "S3"
+        },
+        {
+          "icao": "LFEE",
+          "position_code": "LFEE_RME_CTR",
+          "position_type": "CTR",
+          "callsign": "Reims Control",
+          "frequency": "135.105",
+          "allowed_ratings": [
+            "C1",
+            "C3",
+            "I1",
+            "I3"
+          ],
+          "solo_rating": "S3"
+        },
+        {
+          "icao": "LFEE",
+          "position_code": "LFEE_RMN_CTR",
+          "position_type": "CTR",
+          "callsign": "Reims Control",
+          "frequency": "132.410",
+          "allowed_ratings": [
+            "C1",
+            "C3",
+            "I1",
+            "I3"
+          ],
+          "solo_rating": "S3"
         }
       ]
     },
@@ -3273,7 +3342,7 @@
               "icao": "LFEY",
               "position_code": "LFEY_I_TWR",
               "callsign": "Ile d'Yeu Information",
-              "frequency": "119.905",
+              "frequency": "118.905",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -3408,7 +3477,7 @@
               "icao": "LFRB",
               "position_code": "LFRB_TWR",
               "callsign": "Bretagne Tower",
-              "frequency": "120.100",
+              "frequency": "120.105",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -3439,7 +3508,7 @@
               "icao": "LFRB",
               "position_code": "LFRB_IS_APP",
               "callsign": "Iroise Information",
-              "frequency": "135.825",
+              "frequency": "135.830",
               "solo_rating": "S2",
               "position_type": "APP",
               "allowed_ratings": [
@@ -3507,7 +3576,7 @@
               "icao": "LFRD",
               "position_code": "LFRD_TWR",
               "callsign": "Dinard Tower",
-              "frequency": "120.150",
+              "frequency": "120.155",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -3710,7 +3779,7 @@
           "state": "Normandie",
           "lat": 49.173333333333,
           "lon": -0.45,
-          "atis": "123.080",
+          "atis": "124.080",
           "positions": [
             {
               "icao": "LFRK",
@@ -3733,7 +3802,7 @@
               "icao": "LFRK",
               "position_code": "LFRK_TWR",
               "callsign": "Caen Tower",
-              "frequency": "134.525",
+              "frequency": "134.530",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -3817,6 +3886,23 @@
           "positions": [
             {
               "icao": "LFRM",
+              "position_code": "LFRM_GND",
+              "callsign": "Le Mans Ground",
+              "frequency": "123.250",
+              "solo_rating": "",
+              "position_type": "GND",
+              "allowed_ratings": [
+                "S1",
+                "S2",
+                "S3",
+                "C1",
+                "C3",
+                "I1",
+                "I3"
+              ]
+            },
+            {
+              "icao": "LFRM",
               "position_code": "LFRM_I_TWR",
               "callsign": "Le Mans Information",
               "frequency": "125.905",
@@ -3824,6 +3910,21 @@
               "position_type": "TWR",
               "allowed_ratings": [
                 "S2",
+                "S3",
+                "C1",
+                "C3",
+                "I1",
+                "I3"
+              ]
+            },
+            {
+              "icao": "LFRM",
+              "position_code": "LFRM_DEP",
+              "callsign": "Le Mans Delivery",
+              "frequency": "127.350",
+              "solo_rating": "S2",
+              "position_type": "DEP",
+              "allowed_ratings": [
                 "S3",
                 "C1",
                 "C3",
@@ -3846,7 +3947,7 @@
               "icao": "LFRN",
               "position_code": "LFRN_GND",
               "callsign": "Rennes Ground",
-              "frequency": "121.725",
+              "frequency": "121.730",
               "solo_rating": "",
               "position_type": "GND",
               "allowed_ratings": [
@@ -3863,26 +3964,11 @@
               "icao": "LFRN",
               "position_code": "LFRN_TWR",
               "callsign": "Rennes Tower",
-              "frequency": "120.500",
+              "frequency": "120.505",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
                 "S2",
-                "S3",
-                "C1",
-                "C3",
-                "I1",
-                "I3"
-              ]
-            },
-            {
-              "icao": "LFRN",
-              "position_code": "LFRN_RN_APP",
-              "callsign": "Rennes Approach",
-              "frequency": "134.000",
-              "solo_rating": "S2",
-              "position_type": "APP",
-              "allowed_ratings": [
                 "S3",
                 "C1",
                 "C3",
@@ -3934,6 +4020,21 @@
                 "I1",
                 "I3"
               ]
+            },
+            {
+              "icao": "LFRN",
+              "position_code": "LFRN_APP",
+              "callsign": "Rennes Approach",
+              "frequency": "134.000",
+              "solo_rating": "S2",
+              "position_type": "APP",
+              "allowed_ratings": [
+                "S3",
+                "C1",
+                "C3",
+                "I1",
+                "I3"
+              ]
             }
           ]
         },
@@ -3971,13 +4072,13 @@
           "state": "Bretagne",
           "lat": 47.975,
           "lon": -4.1677777777778,
-          "atis": "129.350",
+          "atis": "",
           "positions": [
             {
               "icao": "LFRQ",
               "position_code": "LFRQ_TWR",
               "callsign": "Quimper Tower",
-              "frequency": "118.625",
+              "frequency": "118.630",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -4021,7 +4122,7 @@
               "icao": "LFRS",
               "position_code": "LFRS_TWR",
               "callsign": "Nantes Tower",
-              "frequency": "118.650",
+              "frequency": "118.655",
               "solo_rating": "S1",
               "position_type": "TWR",
               "s1_tower": true,
@@ -4036,24 +4137,9 @@
             },
             {
               "icao": "LFRS",
-              "position_code": "LFRS_RS_APP",
-              "callsign": "Nantes Approach",
-              "frequency": "124.430",
-              "solo_rating": "S2",
-              "position_type": "APP",
-              "allowed_ratings": [
-                "S3",
-                "C1",
-                "C3",
-                "I1",
-                "I3"
-              ]
-            },
-            {
-              "icao": "LFRS",
               "position_code": "LFRS_NA_APP",
               "callsign": "Nantes Approach",
-              "frequency": "120.125",
+              "frequency": "120.130",
               "solo_rating": "S2",
               "position_type": "APP",
               "allowed_ratings": [
@@ -4099,6 +4185,36 @@
               "position_code": "LFRS_IW_APP",
               "callsign": "Nantes Information",
               "frequency": "119.400",
+              "solo_rating": "S2",
+              "position_type": "APP",
+              "allowed_ratings": [
+                "S3",
+                "C1",
+                "C3",
+                "I1",
+                "I3"
+              ]
+            },
+            {
+              "icao": "LFRS",
+              "position_code": "LFRS_APP",
+              "callsign": "Nantes Approach",
+              "frequency": "124.430",
+              "solo_rating": "S2",
+              "position_type": "APP",
+              "allowed_ratings": [
+                "S3",
+                "C1",
+                "C3",
+                "I1",
+                "I3"
+              ]
+            },
+            {
+              "icao": "LFRS",
+              "position_code": "LFRS_LU_APP",
+              "callsign": "Nantes Approach",
+              "frequency": "119.535",
               "solo_rating": "S2",
               "position_type": "APP",
               "allowed_ratings": [
@@ -4178,7 +4294,7 @@
               "icao": "LFRZ",
               "position_code": "LFRZ_TWR",
               "callsign": "Saint Nazaire Tower",
-              "frequency": "118.950",
+              "frequency": "118.955",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -4224,80 +4340,10 @@
         },
         {
           "icao": "LFRR",
-          "position_code": "LFRR_AI_CTR",
-          "position_type": "CTR",
-          "callsign": "Brest Control",
-          "frequency": "132.025",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFRR",
-          "position_code": "LFRR_AU_CTR",
-          "position_type": "CTR",
-          "callsign": "Brest Control",
-          "frequency": "126.265",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFRR",
-          "position_code": "LFRR_E_CTR",
-          "position_type": "CTR",
-          "callsign": "Brest Control",
-          "frequency": "136.000",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFRR",
           "position_code": "LFRR_G_CTR",
           "position_type": "CTR",
           "callsign": "Brest Control",
           "frequency": "124.065",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFRR",
-          "position_code": "LFRR_GI_CTR",
-          "position_type": "CTR",
-          "callsign": "Brest Control",
-          "frequency": "132.240",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFRR",
-          "position_code": "LFRR_GU_CTR",
-          "position_type": "CTR",
-          "callsign": "Brest Control",
-          "frequency": "131.280",
           "allowed_ratings": [
             "C1",
             "C3",
@@ -4378,48 +4424,6 @@
         },
         {
           "icao": "LFRR",
-          "position_code": "LFRR_S_CTR",
-          "position_type": "CTR",
-          "callsign": "Brest Control",
-          "frequency": "133.550",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFRR",
-          "position_code": "LFRR_UE_CTR",
-          "position_type": "CTR",
-          "callsign": "Brest Control",
-          "frequency": "130.235",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFRR",
-          "position_code": "LFRR_US_CTR",
-          "position_type": "CTR",
-          "callsign": "Brest Control",
-          "frequency": "131.280",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFRR",
           "position_code": "LFRR_V_CTR",
           "position_type": "CTR",
           "callsign": "Brest Control",
@@ -4437,7 +4441,7 @@
           "position_code": "LFRR_VK_CTR",
           "position_type": "CTR",
           "callsign": "Brest Control",
-          "frequency": "124.775",
+          "frequency": "130.235",
           "allowed_ratings": [
             "C1",
             "C3",
@@ -4452,34 +4456,6 @@
           "position_type": "CTR",
           "callsign": "Brest Control",
           "frequency": "129.505",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFRR",
-          "position_code": "LFRR_WI_CTR",
-          "position_type": "CTR",
-          "callsign": "Brest Control",
-          "frequency": "135.260",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFRR",
-          "position_code": "LFRR_WU_CTR",
-          "position_type": "CTR",
-          "callsign": "Brest Control",
-          "frequency": "133.615",
           "allowed_ratings": [
             "C1",
             "C3",
@@ -4507,7 +4483,147 @@
           "position_code": "LFRR_Z_CTR",
           "position_type": "CTR",
           "callsign": "Brest Control",
+          "frequency": "118.885",
+          "allowed_ratings": [
+            "C1",
+            "C3",
+            "I1",
+            "I3"
+          ],
+          "solo_rating": "S3"
+        },
+        {
+          "icao": "LFRR",
+          "position_code": "LFRR_EST_CTR",
+          "position_type": "CTR",
+          "callsign": "Brest Control",
           "frequency": "134.335",
+          "allowed_ratings": [
+            "C1",
+            "C3",
+            "I1",
+            "I3"
+          ],
+          "solo_rating": "S3"
+        },
+        {
+          "icao": "LFRR",
+          "position_code": "LFRR_GA_CTR",
+          "position_type": "CTR",
+          "callsign": "Brest Control",
+          "frequency": "131.280",
+          "allowed_ratings": [
+            "C1",
+            "C3",
+            "I1",
+            "I3"
+          ],
+          "solo_rating": "S3"
+        },
+        {
+          "icao": "LFRR",
+          "position_code": "LFRR_JVK_CTR",
+          "position_type": "CTR",
+          "callsign": "Brest Control",
+          "frequency": "136.160",
+          "allowed_ratings": [
+            "C1",
+            "C3",
+            "I1",
+            "I3"
+          ],
+          "solo_rating": "S3"
+        },
+        {
+          "icao": "LFRR",
+          "position_code": "LFRR_MQ_CTR",
+          "position_type": "CTR",
+          "callsign": "Brest Control",
+          "frequency": "132.735",
+          "allowed_ratings": [
+            "C1",
+            "C3",
+            "I1",
+            "I3"
+          ],
+          "solo_rating": "S3"
+        },
+        {
+          "icao": "LFRR",
+          "position_code": "LFRR_MZ_CTR",
+          "position_type": "CTR",
+          "callsign": "Brest control",
+          "frequency": "125.435",
+          "allowed_ratings": [
+            "C1",
+            "C3",
+            "I1",
+            "I3"
+          ],
+          "solo_rating": "S3"
+        },
+        {
+          "icao": "LFRR",
+          "position_code": "LFRR_NOR_CTR",
+          "position_type": "CTR",
+          "callsign": "Brest Control",
+          "frequency": "133.480",
+          "allowed_ratings": [
+            "C1",
+            "C3",
+            "I1",
+            "I3"
+          ],
+          "solo_rating": "S3"
+        },
+        {
+          "icao": "LFRR",
+          "position_code": "LFRR_QX_CTR",
+          "position_type": "CTR",
+          "callsign": "Brest Control",
+          "frequency": "127.560",
+          "allowed_ratings": [
+            "C1",
+            "C3",
+            "I1",
+            "I3"
+          ],
+          "solo_rating": "S3"
+        },
+        {
+          "icao": "LFRR",
+          "position_code": "LFRR_VKW_CTR",
+          "position_type": "CTR",
+          "callsign": "Brest Control",
+          "frequency": "124.365",
+          "allowed_ratings": [
+            "C1",
+            "C3",
+            "I1",
+            "I3"
+          ],
+          "solo_rating": "S3"
+        },
+        {
+          "icao": "LFRR",
+          "position_code": "LFRR_WST_CTR",
+          "position_type": "CTR",
+          "callsign": "Brest Control",
+          "frequency": "136.000",
+          "allowed_ratings": [
+            "C1",
+            "C3",
+            "I1",
+            "I3"
+          ],
+          "solo_rating": "S3"
+        },
+        {
+          "icao": "LFRR",
+          "position_code": "LFRR_ZX_CTR",
+          "position_type": "CTR",
+          "callsign": "Brest Control",
+          "frequency": "132.830",
           "allowed_ratings": [
             "C1",
             "C3",
@@ -4604,7 +4720,7 @@
               "icao": "LFBD",
               "position_code": "LFBD_GND",
               "callsign": "Merignac Ground",
-              "frequency": "121.900",
+              "frequency": "121.905",
               "solo_rating": "",
               "position_type": "GND",
               "allowed_ratings": [
@@ -4621,7 +4737,7 @@
               "icao": "LFBD",
               "position_code": "LFBD_TWR",
               "callsign": "Merignac Tower",
-              "frequency": "118.300",
+              "frequency": "118.305",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -4652,7 +4768,7 @@
               "icao": "LFBD",
               "position_code": "LFBD_BW_APP",
               "callsign": "Aquitaine Approach",
-              "frequency": "129.875",
+              "frequency": "129.880",
               "solo_rating": "S2",
               "position_type": "APP",
               "allowed_ratings": [
@@ -4693,7 +4809,7 @@
               "icao": "LFBE",
               "position_code": "LFBE_TWR",
               "callsign": "Bergerac Tower",
-              "frequency": "119.800",
+              "frequency": "119.805",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -4779,7 +4895,7 @@
               "icao": "LFBH",
               "position_code": "LFBH_TWR",
               "callsign": "La Rochelle Tower",
-              "frequency": "118.000",
+              "frequency": "118.005",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -4795,7 +4911,7 @@
               "icao": "LFBH",
               "position_code": "LFBH_APP",
               "callsign": "La Rochelle Approach",
-              "frequency": "124.200",
+              "frequency": "124.205",
               "solo_rating": "S2",
               "position_type": "APP",
               "allowed_ratings": [
@@ -4821,7 +4937,7 @@
               "icao": "LFBI",
               "position_code": "LFBI_TWR",
               "callsign": "Poitiers Biard Tower",
-              "frequency": "118.500",
+              "frequency": "118.505",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -4878,7 +4994,7 @@
               "icao": "LFBL",
               "position_code": "LFBL_TWR",
               "callsign": "Limoges Tower",
-              "frequency": "119.550",
+              "frequency": "119.555",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -5022,6 +5138,23 @@
               "position_code": "LFBO_GND",
               "callsign": "Blagnac Ground",
               "frequency": "121.905",
+              "solo_rating": "",
+              "position_type": "GND",
+              "allowed_ratings": [
+                "S1",
+                "S2",
+                "S3",
+                "C1",
+                "C3",
+                "I1",
+                "I3"
+              ]
+            },
+            {
+              "icao": "LFBO",
+              "position_code": "LFBO_I_GND",
+              "callsign": "Saint Martin Information",
+              "frequency": "121.830",
               "solo_rating": "",
               "position_type": "GND",
               "allowed_ratings": [
@@ -5229,7 +5362,7 @@
               "icao": "LFBR",
               "position_code": "LFBR_GND",
               "callsign": "Muret Ground",
-              "frequency": "121.750",
+              "frequency": "121.755",
               "solo_rating": "",
               "position_type": "GND",
               "allowed_ratings": [
@@ -5246,7 +5379,7 @@
               "icao": "LFBR",
               "position_code": "LFBR_TWR",
               "callsign": "Muret Tower",
-              "frequency": "123.200",
+              "frequency": "123.205",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -5273,7 +5406,7 @@
               "icao": "LFBT",
               "position_code": "LFBT_GND",
               "callsign": "Lourdes Ground",
-              "frequency": "121.800",
+              "frequency": "121.805",
               "solo_rating": "",
               "position_type": "GND",
               "allowed_ratings": [
@@ -5290,7 +5423,7 @@
               "icao": "LFBT",
               "position_code": "LFBT_TWR",
               "callsign": "Lourdes Tower",
-              "frequency": "120.305",
+              "frequency": "119.055",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -5403,7 +5536,7 @@
               "icao": "LFBZ",
               "position_code": "LFBZ_GND",
               "callsign": "Biarritz Ground",
-              "frequency": "121.950",
+              "frequency": "121.955",
               "solo_rating": "",
               "position_type": "GND",
               "allowed_ratings": [
@@ -5420,7 +5553,7 @@
               "icao": "LFBZ",
               "position_code": "LFBZ_TWR",
               "callsign": "Biarritz Tower",
-              "frequency": "118.700",
+              "frequency": "118.705",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -5436,7 +5569,7 @@
               "icao": "LFBZ",
               "position_code": "LFBZ_I_APP",
               "callsign": "Biarritz Information",
-              "frequency": "119.175",
+              "frequency": "119.180",
               "solo_rating": "S2",
               "position_type": "APP",
               "allowed_ratings": [
@@ -5451,7 +5584,7 @@
               "icao": "LFBZ",
               "position_code": "LFBZ_APP",
               "callsign": "Biarritz Approach",
-              "frequency": "125.600",
+              "frequency": "125.605",
               "solo_rating": "S2",
               "position_type": "APP",
               "allowed_ratings": [
@@ -5558,7 +5691,7 @@
               "icao": "LFLX",
               "position_code": "LFLX_TWR",
               "callsign": "Chateauroux Tower",
-              "frequency": "125.875",
+              "frequency": "125.880",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -5606,13 +5739,13 @@
           "state": "Nouvelle-Aquitaine",
           "lat": 45.039722222222,
           "lon": 1.4855555555556,
-          "atis": "129.780",
+          "atis": "",
           "positions": [
             {
               "icao": "LFSL",
               "position_code": "LFSL_TWR",
               "callsign": "Brive Tower",
-              "frequency": "121.125",
+              "frequency": "121.130",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -5658,108 +5791,10 @@
         },
         {
           "icao": "LFBB",
-          "position_code": "LFBB_H2_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "132.910",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_H3_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "120.935",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_H4_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "134.610",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_H5_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "124.080",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
           "position_code": "LFBB_L_CTR",
           "position_type": "CTR",
           "callsign": "Bordeaux Control",
           "frequency": "132.990",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_L3_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "134.225",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_L4_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "122.630",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_L5_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "127.435",
           "allowed_ratings": [
             "C1",
             "C3",
@@ -5784,94 +5819,10 @@
         },
         {
           "icao": "LFBB",
-          "position_code": "LFBB_N2_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "134.765",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_N3_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "120.935",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_N4_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "133.460",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_N5_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "124.080",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
           "position_code": "LFBB_P_CTR",
           "position_type": "CTR",
           "callsign": "Bordeaux Control",
-          "frequency": "124.080",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_P3_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "132.180",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_P4_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "130.230",
+          "frequency": "133.960",
           "allowed_ratings": [
             "C1",
             "C3",
@@ -5896,108 +5847,10 @@
         },
         {
           "icao": "LFBB",
-          "position_code": "LFBB_R2_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "132.990",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_R3_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "135.240",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_R4_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "133.010",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_R5_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "124.635",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
           "position_code": "LFBB_T_CTR",
           "position_type": "CTR",
           "callsign": "Bordeaux Control",
           "frequency": "123.630",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_T2_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "123.630",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_T3_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "133.465",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_T4_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "134.730",
           "allowed_ratings": [
             "C1",
             "C3",
@@ -6050,122 +5903,10 @@
         },
         {
           "icao": "LFBB",
-          "position_code": "LFBB_X2_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "126.130",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_X3_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "122.415",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_X4_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "135.115",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_X5_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "120.785",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
           "position_code": "LFBB_Z_CTR",
           "position_type": "CTR",
           "callsign": "Bordeaux Control",
           "frequency": "128.765",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_Z2_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "121.340",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_Z3_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "136.180",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_Z4_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "133.680",
-          "allowed_ratings": [
-            "C1",
-            "C3",
-            "I1",
-            "I3"
-          ],
-          "solo_rating": "S3"
-        },
-        {
-          "icao": "LFBB",
-          "position_code": "LFBB_Z5_CTR",
-          "position_type": "CTR",
-          "callsign": "Bordeaux Control",
-          "frequency": "120.785",
           "allowed_ratings": [
             "C1",
             "C3",
@@ -6220,7 +5961,7 @@
               "icao": "LFCR",
               "position_code": "LFCR_TWR",
               "callsign": "Rodez Tower",
-              "frequency": "118.125",
+              "frequency": "118.130",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -6332,21 +6073,6 @@
             },
             {
               "icao": "LFKB",
-              "position_code": "LFKB_KB_APP",
-              "callsign": "Bastia Approach",
-              "frequency": "123.825",
-              "solo_rating": "S2",
-              "position_type": "APP",
-              "allowed_ratings": [
-                "S3",
-                "C1",
-                "C3",
-                "I1",
-                "I3"
-              ]
-            },
-            {
-              "icao": "LFKB",
               "position_code": "LFKB_KC_APP",
               "callsign": "Bastia Approach",
               "frequency": "127.255",
@@ -6380,6 +6106,21 @@
               "position_code": "LFKB_IS_APP",
               "callsign": "Bastia Information",
               "frequency": "135.135",
+              "solo_rating": "S2",
+              "position_type": "APP",
+              "allowed_ratings": [
+                "S3",
+                "C1",
+                "C3",
+                "I1",
+                "I3"
+              ]
+            },
+            {
+              "icao": "LFKB",
+              "position_code": "LFKB_APP",
+              "callsign": "Bastia Approach",
+              "frequency": "123.825",
               "solo_rating": "S2",
               "position_type": "APP",
               "allowed_ratings": [
@@ -6626,7 +6367,7 @@
               "icao": "LFLB",
               "position_code": "LFLB_TWR",
               "callsign": "Chambéry Tower",
-              "frequency": "118.300",
+              "frequency": "118.305",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -6657,7 +6398,7 @@
               "icao": "LFLB",
               "position_code": "LFLB_I_APP",
               "callsign": "Chambéry Information",
-              "frequency": "123.700",
+              "frequency": "123.705",
               "solo_rating": "S2",
               "position_type": "APP",
               "allowed_ratings": [
@@ -6796,7 +6537,7 @@
           "state": "Centre",
           "lat": 47.0581016541,
           "lon": 2.3702800274,
-          "atis": "129.350",
+          "atis": "",
           "positions": [
             {
               "icao": "LFLD",
@@ -6823,7 +6564,7 @@
           "state": "Auvergne-Rhone-Alpes",
           "lat": 45.2192001343,
           "lon": 5.8497200012,
-          "atis": "129.350",
+          "atis": "",
           "positions": [
             {
               "icao": "LFLG",
@@ -7089,13 +6830,13 @@
           "state": "Auvergne-Rhone-Alpes",
           "lat": 45.9291992188,
           "lon": 6.098760128,
-          "atis": "129.350",
+          "atis": "",
           "positions": [
             {
               "icao": "LFLP",
               "position_code": "LFLP_TWR",
               "callsign": "Annecy Tower",
-              "frequency": "118.200",
+              "frequency": "118.205",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -7139,7 +6880,7 @@
               "icao": "LFLS",
               "position_code": "LFLS_TWR",
               "callsign": "Grenoble Tower",
-              "frequency": "119.300",
+              "frequency": "119.305",
               "solo_rating": "S1",
               "position_type": "TWR",
               "s1_tower": true,
@@ -7242,7 +6983,7 @@
           "state": "Auvergne-Rhone-Alpes",
           "lat": 45.7271995544,
           "lon": 4.944270134,
-          "atis": "129.350",
+          "atis": "",
           "positions": [
             {
               "icao": "LFLY",
@@ -7286,13 +7027,13 @@
           "state": "Provence-Alpes-Cote-d'Azur",
           "lat": 43.5055999756,
           "lon": 5.3677802086,
-          "atis": "129.350",
+          "atis": "",
           "positions": [
             {
               "icao": "LFMA",
               "position_code": "LFMA_TWR",
               "callsign": "Aix Tower",
-              "frequency": "118.750",
+              "frequency": "118.755",
               "solo_rating": "S1",
               "position_type": "TWR",
               "allowed_ratings": [
@@ -7638,7 +7379,7 @@
           "state": "Provence-Alpes-Cote-d'Azur",
           "lat": 43.6584014893,
           "lon": 7.2158699036,
-          "atis": "129.605",
+          "atis": "136.580",
           "positions": [
             {
               "icao": "LFMN",
@@ -8009,21 +7750,6 @@
               "position_type": "TWR",
               "allowed_ratings": [
                 "S2",
-                "S3",
-                "C1",
-                "C3",
-                "I1",
-                "I3"
-              ]
-            },
-            {
-              "icao": "LFMT",
-              "position_code": "LFMT_FB_APP",
-              "callsign": "Montpellier Approach",
-              "frequency": "127.280",
-              "solo_rating": "S2",
-              "position_type": "APP",
-              "allowed_ratings": [
                 "S3",
                 "C1",
                 "C3",
