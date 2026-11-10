@@ -1,0 +1,359 @@
+#:schema ../schemas/runway-use.schema.json
+# Brest FIR.
+#
+# Choices are read by number: 1 is the first choice, and the first usable one
+# is used. See the README for every setting and the condition language.
+#
+# Sources: the eAIP of 29 OCT 2026 (AIRAC 2611), AD 2 pages and VACs. Airports
+# not listed here have nothing in their AIP that changes the default, their
+# longest runway facing into the wind.
+
+[defaults]
+timezone = "Europe/Paris"
+max_tailwind = 5          # kt, gusts included
+max_crosswind = 20        # kt, gusts included
+
+# Bagnoles-de-l'Orne Couterne. QFU 300° is preferred for the environment
+# (less noise) (VAC TXT 01). The VAC also shows an unpaved 12L/30R beside
+# the paved runway; it is reserved for gliders and the two runways may not
+# be used at the same time (VAC TXT 01). It is not in our database.
+[LFAO.choice.1]
+note = "Preferred QFU 300, noise"
+runways = ["30"]
+
+[LFAO.choice.2]
+runways = ["12"]
+
+# Dinan Trélivan. QFU 070° is preferred to avoid long landings on 25, which
+# slopes downward (VAC TXT 01).
+[LFEB.choice.1]
+note = "Preferred QFU 070, 25 slopes downward"
+runways = ["07"]
+
+[LFEB.choice.2]
+runways = ["25"]
+
+# Ouessant. QFU 232° is preferred because of the IFR procedure (VAC TXT 01).
+# Both ends have an instrument approach (RNP 05, RNP and NDB 23: AD 2.24), so
+# arrivals are not confined to one end.
+[LFEC.choice.1]
+note = "Preferred QFU 232, IFR procedure"
+runways = ["23"]
+
+[LFEC.choice.2]
+runways = ["05"]
+
+# Quiberon. Take-off from 11 is preferred to limit noise, weather and
+# traffic permitting (VAC TXT 01, "Procédure moindre bruit"). On a single
+# runway this is taken as 11 for landings too. The VAC also warns of severe
+# turbulence on short final 29 in strong wind (VAC TXT 01).
+[LFEQ.choice.1]
+note = "Take-off 11 preferred, noise"
+runways = ["11"]
+
+[LFEQ.choice.2]
+runways = ["29"]
+
+# Guiscriff Scaër. QFU 203° is preferred for the environment (VAC TXT 01).
+# The unpaved 02R/20L is reserved for ULM and the runways may not be used at
+# the same time (VAC TXT 01), so it is not offered.
+[LFES.choice.1]
+note = "Preferred QFU 203, environment"
+runways = ["20"]
+
+[LFES.choice.2]
+runways = ["02"]
+
+# Île d'Yeu. 14/32 (paved, RNP approaches to both ends: AD 2.24) is used
+# into wind. The grass strip 04/22 is recommended when the crosswind on
+# 14/32 is above 15 kt (VAC TXT 01). Circling to 04 and 22 is prohibited
+# (AD 2.22.2), so IFR arrivals stay on 14/32.
+[LFEY.choice.1]
+note = "Main runway, into wind"
+runways = ["14/32"]
+max_crosswind = 15
+
+[LFEY.choice.2]
+note = "Grass strip, crosswind above 15 kt on 14/32"
+runways = ["04/22"]
+
+# Ancenis. QFU 072° is preferred for the environment (noise abatement
+# procedure) (VAC TXT 01).
+[LFFI.choice.1]
+note = "Preferred QFU 072, noise"
+runways = ["07"]
+
+[LFFI.choice.2]
+runways = ["25"]
+
+# Montaigu Saint-Georges. QFU 066° is preferred because of noise (VAC TXT
+# 01). The VAC has two unpaved parallel runways, 07L/25R and 07R/25L, used
+# one movement at a time; our database has a single 07/25.
+[LFFW.choice.1]
+note = "Preferred QFU 066, noise"
+runways = ["07"]
+
+[LFFW.choice.2]
+runways = ["25"]
+
+# Angers Marcé. QFU 260° is preferred (VAC TXT 01), so 26 comes first and 08
+# is used when the tailwind on 26 is too strong. Both ends of the paved runway
+# have an RNP approach (AD 2.24). The unpaved runways are not offered: the
+# southern one (08R/26L) is reserved for gliders and tugs, the northern one
+# (08L/26R) may not be used at the same time as the paved runway, and both are
+# unusable after prolonged rain (VAC TXT 01).
+[LFJR.choice.1]
+runways = ["26"]
+
+[LFJR.choice.2]
+runways = ["08"]
+
+# Cholet Le Pontreau. Only 20 has instrument approaches (RNP Y and Z: AD 2.24),
+# and QFU 204° is preferred "due to IFR procedure" (VAC TXT 01). Arrivals stay
+# on 20 and departures use 02 when the tailwind on 20 is too strong. The
+# unpaved runway 02R/20L is reserved for aircraft authorised by the operator
+# outside gliding hours and may not be used at the same time as the paved one
+# (VAC TXT 01); it is not offered.
+[LFOU]
+instrument_approaches = ["20"]
+
+[LFOU.choice.1]
+runways = ["20"]
+
+[LFOU.choice.2]
+note = "Departures only; arrivals stay on 20"
+runways = ["02"]
+
+# Laval Entrammes. QFU 322° is preferred "due to IFR procedures and weather
+# conditions" (VAC TXT 01), so 32 comes first. Both ends have an RNP approach
+# (AD 2.24). The grass runway 14L/32R is a mixed powered/glider strip with
+# winch launching, unusable in rain, and may not be used at the same time as
+# the paved runway (VAC TXT 01, TXT 02); it is not offered.
+[LFOV.choice.1]
+runways = ["32"]
+
+[LFOV.choice.2]
+runways = ["14"]
+
+# Brest Bretagne. No preferred direction is published; 07R/25L faces into the
+# wind. Both ends have an RNP approach and SIDs, 25L also an ILS (AD 2.24).
+# LVP start at RVR 550 m or less, or a ceiling below 200 ft (AD 2.22.5.2).
+# In LVP only 25L is used for landing; take-offs may use 25L or 07R
+# (AD 2.22.5.1). Here 25L is used for both. LVP are suspended outside the
+# airport operator's hours and below RVR 350 m (AD 2.22.5.2), which cannot be
+# expressed. The short runway 07L/25R (700 m, parallel) is used for training
+# circuits (AD 2.20.5) and gives no crosswind relief; it is not offered.
+[LFRB]
+lvo = "rvr <= 550 or visibility <= 550 or ceiling < 200"
+
+[LFRB.choice.10]
+name = "LVP"
+note = "Landings on 25L only in LVP"
+runways = ["25L"]
+when = "lvo"
+
+[LFRB.choice.20]
+runways = ["07R/25L"]
+
+# Cherbourg Manche. Only 28 has an instrument approach (RNP: AD 2.24), so
+# arrivals stay on it and 28 is the first choice; departures use 10 when the
+# tailwind on 28 is too strong. No preferred direction is published.
+[LFRC]
+instrument_approaches = ["28"]
+
+[LFRC.choice.1]
+runways = ["28"]
+
+[LFRC.choice.2]
+note = "Departures only; arrivals stay on 28"
+runways = ["10"]
+
+# Dinard Pleurtuit. QFU 350° is preferred "due to IFR operations" (VAC TXT 01),
+# so 35 comes first. Both ends have RNP and VOR approaches and SIDs (AD 2.24).
+# 11/29 is used only occasionally for maintenance, by day and visually
+# (AD 2.20.2.1.1), and 17R/35L is a strip for authorised ULM (AD 2.20.2.1.2);
+# neither is offered. LVP start at RVR 550 m or less, or a ceiling below
+# 200 ft (AD 2.22.3.2), and change no runway. Strong westerly winds cause wind
+# shear on final 17 (VAC TXT 01).
+[LFRD]
+lvo = "rvr <= 550 or visibility <= 550 or ceiling < 200"
+
+[LFRD.choice.1]
+runways = ["35"]
+
+[LFRD.choice.2]
+runways = ["17"]
+
+# La Baule Escoublac. Noise-sensitive airfield: take-off on 11 and landing on
+# 29 are preferred when weather and traffic allow (VAC TXT 01). This split is
+# used while the tailwind on both ends stays within the limit, then the runway
+# faces into the wind. No instrument procedure (VAC only).
+[LFRE.choice.1]
+name = "NOISE"
+note = "Noise procedure, landing 29 and take-off 11"
+arr = ["29"]
+dep = ["11"]
+established_tailwind_hours = 0
+
+[LFRE.choice.2]
+runways = ["11/29"]
+
+# Lorient Lann-Bihoué. Both ends of 07/25 have instrument approaches (ILS or
+# LOC 25, NDB and RNP to both: AD 2.24); 02/20 has none. No preferred
+# direction is published. Crosswind is limited to 25 kt on a dry runway and
+# 20 kt on a wet one, on 07/25 (AD 2.22.4) and on 02/20 for civil aircraft
+# (VAC TXT 02); the dry value is used. 02/20 then takes over. LVP start when
+# the RVR is below 1600 m (AD 2.22.3) and change no runway.
+[LFRH]
+lvo = "rvr < 1600 or visibility < 1600"
+max_crosswind = 25
+
+[LFRH.choice.1]
+note = "Main runway, into wind"
+runways = ["07/25"]
+
+[LFRH.choice.2]
+note = "Crosswind runway"
+runways = ["02/20"]
+
+# Caen Carpiquet. QFU 304° is preferred "due to IFR procedure" (VAC TXT 01),
+# so 30 comes first. 30 has an ILS and an RNP approach, 12 has RNP and VOR
+# approaches (AD 2.24). LVP are in force when the visibility is between 550 m
+# and 400 m or the ceiling is below 200 ft, and there are none for arrivals
+# (AD 2.22.3.4); they change no runway. The grass strip 12L/30R is not offered
+# (circling prohibited on it: AD 2.22.2).
+[LFRK]
+lvo = "visibility <= 550 or rvr <= 550 or ceiling < 200"
+
+[LFRK.choice.1]
+runways = ["30"]
+
+[LFRK.choice.2]
+runways = ["12"]
+
+# Lanvéoc Poulmic. Navy airfield, not open to public air traffic (AD 2.20.1).
+# 05/23 faces into the wind; the AD 2 page lists no instrument approach chart.
+# The grass strip 13/31 is reserved for based aircraft (AD 2.12, AD 2.20.1).
+# LVP start when the RVR is below 800 m for arrivals and 400 m for departures
+# (AD 2.22); the arrival value is used, and they change no runway.
+[LFRL]
+lvo = "rvr < 800 or visibility < 800"
+
+[LFRL.choice.1]
+runways = ["05/23"]
+
+# Le Mans Arnage. QFU 019° is preferred because of the IFR procedure (VAC
+# TXT 01), so 02 comes first; both ends have an RNP approach (AD 2.24).
+# 02/20 may not be used with a crosswind above 25 kt on a dry runway, 20 kt
+# on a wet one (AD 2.22.1); the dry value is used. The unpaved 02R/20L runs
+# alongside, may not be used at the same time (AD 2.20.1) and offers no
+# other direction, so it is not offered. No LVP (AD 2.22.5).
+[LFRM]
+max_crosswind = 25
+
+[LFRM.choice.1]
+note = "Preferred QFU, IFR procedure"
+runways = ["02"]
+
+[LFRM.choice.2]
+runways = ["20"]
+
+# Lannion. Only 29 has an instrument approach (RNP: AD 2.24). QFU 288° is
+# preferred "due to environment and IFR procedure" up to a tailwind of 5 kt
+# (AD 2 LFRO TXT 01), so 29 is kept while the tailwind stays within 5 kt,
+# even when it lasts. Arrivals stay on 29 whatever the wind.
+[LFRO]
+instrument_approaches = ["29"]
+
+[LFRO.choice.1]
+note = "Preferred QFU up to 5 kt tailwind, only end with an approach"
+runways = ["29"]
+established_tailwind_hours = 0
+
+[LFRO.choice.2]
+note = "Departures only; arrivals stay on 29"
+runways = ["11"]
+
+# Quimper Pluguffan. QFU 274° is preferred, the prevailing wind being
+# westerly (AD 2 LFRQ TXT 01); both ends have an RNP approach and SIDs
+# (AD 2.24). 09/27 is closed with a crosswind from 190° above 25 kt on a wet
+# runway or in LVP (AD 2.22.1); this is not written, the runway being the
+# only one.
+[LFRQ.choice.1]
+note = "Preferred QFU, prevailing wind"
+runways = ["27"]
+
+[LFRQ.choice.2]
+runways = ["09"]
+
+# Nantes Atlantique. RWY 03 is preferred up to a tailwind of 5 kt (noise
+# abatement, AD 2.21.3.2; VAC TXT 03 says the same for night VFR), so 03 is
+# kept while the tailwind stays within 5 kt, even when it lasts.
+#
+# Low visibility: LVP starts at the latest at RVR 550 m or less, or ceiling
+# below 200 ft (AD 2.22.4.2); visibility stands in for the RVR when the METAR
+# gives none. In LVP only 03 may be used for landing, and below RVR 125 m
+# only 03 for take-off (AD 2.22.4.1). Every movement uses 03 in LVP.
+[LFRS]
+lvo = "rvr <= 550 or visibility <= 550 or ceiling < 200"
+
+[LFRS.choice.10]
+name = "LVP"
+note = "Landings on 03 only in LVP"
+runways = ["03"]
+when = "lvo"
+established_tailwind_hours = 0
+
+[LFRS.choice.20]
+name = "03"
+note = "Preferred up to 5 kt tailwind, noise abatement"
+runways = ["03"]
+established_tailwind_hours = 0
+
+[LFRS.choice.30]
+name = "21"
+runways = ["21"]
+
+# St Brieuc Armor. Only 24 has an instrument approach (RNP: AD 2.24); no
+# preference is published. Arrivals stay on 24 whatever the wind.
+[LFRT]
+instrument_approaches = ["24"]
+
+[LFRT.choice.1]
+note = "Only end with an instrument approach"
+runways = ["24"]
+
+[LFRT.choice.2]
+note = "Departures only; arrivals stay on 24"
+runways = ["06"]
+
+# Morlaix Ploujean. 04/22 is the main runway and has priority; it should not
+# be used with a crosswind above 25 kt on a dry runway, 20 kt on a wet one
+# (AD 2 LFRU TXT 01); the dry value is used. Both ends have an RNP approach
+# (AD 2.24). Above that crosswind the unpaved 15/33 is used. The unpaved
+# 09/27 (472 m) is not offered: it is short and not recommended during AEM
+# activity (VAC TXT 01).
+[LFRU.choice.1]
+note = "Main runway"
+runways = ["04/22"]
+max_crosswind = 25
+
+[LFRU.choice.2]
+note = "Unpaved crosswind runway"
+runways = ["15/33"]
+
+# St Nazaire Montoir. QFU 253° is preferred because of the environment (AD 2
+# LFRZ TXT 01), so 25 comes first; both ends have instrument approaches (RNP
+# AR to 07, NDB and RNP to 25: AD 2.24). LVP starts at RVR 550 m or less, or
+# ceiling below 200 ft (AD 2.22.2.2), and changes no runway: take-offs use 07
+# and 25 (AD 2.22.2.1). Visibility stands in for the RVR when the METAR gives
+# none.
+[LFRZ]
+lvo = "rvr <= 550 or visibility <= 550 or ceiling < 200"
+
+[LFRZ.choice.1]
+note = "Preferred QFU, environment"
+runways = ["25"]
+
+[LFRZ.choice.2]
+runways = ["07"]
