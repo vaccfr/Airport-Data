@@ -1,0 +1,239 @@
+#:schema ../schemas/runway-use.schema.json
+# Reims FIR.
+#
+# Choices are read by number: 1 is the first choice, and the first usable one
+# is used. See the README for every setting and the condition language.
+#
+# Sources: the eAIP of 29 OCT 2026 (AIRAC 2611), AD 2 pages and VACs. Airports
+# not listed here have nothing in their AIP that changes the default, their
+# longest runway facing into the wind.
+
+[defaults]
+timezone = "Europe/Paris"
+max_tailwind = 5          # kt, gusts included
+max_crosswind = 20        # kt, gusts included
+
+# Til-Châtel. QFU 013° is preferred because of the environment (VAC TXT 01),
+# so 01 comes first and 19 second. 11/29, also unpaved, has no restriction
+# in the VAC and is the crosswind runway.
+[LFET.choice.1]
+note = "Published preferred QFU"
+runways = ["01"]
+
+[LFET.choice.2]
+runways = ["19"]
+
+[LFET.choice.3]
+note = "Crosswind runway"
+runways = ["11/29"]
+
+# Gray Saint-Adrien. QFU 072° is preferred because of the RNP procedure to
+# RWY 07 (VAC TXT 01). That procedure is the RNP A (AD 2.24), a circling
+# approach, so arrivals are not confined to 07. Only the paved 07/25 is used:
+# the unpaved 07L/25R is reserved for based aircraft and 07R/25L for based
+# microlights (AD 2.13, VAC TXT 01), and the runways may not be used at the
+# same time (AD 2.20.2).
+[LFEV.choice.1]
+note = "Published preferred QFU"
+runways = ["07"]
+
+[LFEV.choice.2]
+runways = ["25"]
+
+# Tournus-Cuisery. QFU 011° is preferred for the better clearances to the
+# north and the downhill slope on take-off (VAC TXT 01).
+[LFFX.choice.1]
+note = "Published preferred QFU"
+runways = ["01"]
+
+[LFFX.choice.2]
+runways = ["19"]
+
+# Colmar-Houssen. 01/19 faces into the wind; both ends have instrument
+# approaches (RNP to 01, NDB and RNP to 19: AD 2.24) and no preference is
+# published. The unpaved 01L/19R is reserved for gliders, tow planes and
+# based aircraft (VAC TXT 01). LVP starts when the RVR is below 550 m for
+# take-offs and ends above 550 m (AD 2.22.3.2), with no ceiling criterion;
+# visibility stands in for the RVR when the METAR gives none. It changes no
+# runway.
+[LFGA]
+lvo = "rvr < 550 or visibility < 550"
+
+# Mulhouse-Habsheim. The paved 02/20 is the main runway; QFU 199° is preferred
+# because of the environment (VAC TXT 01), so 20 comes first and 02 second.
+# The unpaved 02R/20L, with no restriction in the VAC, is the fallback when
+# 02/20 is closed, in the same order. 16/34 is reserved for based microlights
+# (VAC TXT 01). The runways may not be used at the same time (VAC TXT 01).
+# The paved runway is reserved for aircraft with a reference distance below
+# 800 m (VAC TXT 01), which the format cannot express.
+[LFGB.choice.1]
+note = "Published preferred QFU"
+runways = ["20"]
+
+[LFGB.choice.2]
+runways = ["02"]
+
+[LFGB.choice.3]
+note = "Unpaved runway, when 02/20 is closed"
+runways = ["20L"]
+
+[LFGB.choice.4]
+note = "Unpaved runway, when 02/20 is closed"
+runways = ["02R"]
+
+# Dole-Tavaux. QFU 052° is preferred because of the IFR procedures (VAC TXT
+# 01), and only 05 has instrument approaches (ILS, NDB, RNP: AD 2.24), so
+# arrivals stay on 05. 05/23 may not be used with a crosswind from the north
+# sector of 25 kt or more (AD 2.22.1, VAC TXT 01); that limit is applied here
+# to both sides.
+#
+# LVP for take-offs applies at RVR 550 m or below and ends once the RVR has
+# been above 550 m for 30 minutes (AD 2.22.4.2); visibility stands in for the
+# RVR when the METAR gives none. In LVP, 05 and 23 are used for take-offs
+# only (AD 2.22.4.1), which changes no runway.
+[LFGJ]
+instrument_approaches = ["05"]
+lvo = "rvr <= 550 or visibility <= 550"
+max_crosswind = 25
+
+[LFGJ.choice.1]
+note = "Published preferred QFU"
+runways = ["05"]
+
+[LFGJ.choice.2]
+note = "Departures only; arrivals stay on 05"
+runways = ["23"]
+
+# Chambley. QFU 228° (23L) is preferred because of the IFR procedure
+# (VAC TXT 01), the RNP A (AD 2.24), a circling approach. The IFR procedure
+# is reserved for based users, medical flights and aircraft with PPR
+# (AD 2.22.1). The grass strip is reserved for gliders and 05L/23R for ULM
+# and helicopters (VAC TXT 01); neither is used.
+[LFJY.choice.1]
+note = "Published preferred QFU"
+runways = ["23L"]
+
+[LFJY.choice.2]
+runways = ["05R"]
+
+# Chalon-Champforgeuil. QFU 348° (35) is preferred because of the IFR
+# procedure and noise (VAC TXT 01), and 35 is the only end with an approach
+# (RNP: AD 2.24), so arrivals stay on 35. The unpaved 17L/35R is reserved for
+# based aircraft and helicopters, others on PPR, and is unusable after heavy
+# rain (VAC TXT 01); it is not used.
+[LFLH]
+instrument_approaches = ["35"]
+
+[LFLH.choice.1]
+runways = ["35"]
+
+[LFLH.choice.2]
+note = "Departures only; arrivals stay on 35"
+runways = ["17"]
+
+# Besancon La Veze. QFU 231° (23) is preferred for landings because of the
+# IFR procedure and for take-offs because of the environment (VAC TXT 01).
+# 23 is the only end with approaches (RNP Y and Z: AD 2.24), so arrivals stay
+# on it. The night closure of the aerodrome (AD 2.21.1) changes no runway.
+[LFQM]
+instrument_approaches = ["23"]
+
+[LFQM.choice.1]
+runways = ["23"]
+
+[LFQM.choice.2]
+note = "Departures only; arrivals stay on 23"
+runways = ["05"]
+
+# Basel-Mulhouse. 15/33 is the main runway, with ILS approaches to both ends
+# and SIDs (AD 2.24).
+#
+# Low visibility: LVP is in force below RVR 550 m or ceiling 200 ft
+# (AD 2.22.5.1.2), as in the default. 15 has a CAT III ILS and 33 only a CAT I
+# ILS (AD 2.22.5.1.1), so in LVP 15 is used.
+#
+# Night: from 2100 to 0500 UTC (2200 to 0600 local) take-offs on 33 are
+# recommended unless operational conditions do not allow it (AD 2.21.4.1).
+# Arrivals are put on 33 too, so the airport faces one way; the tailwind limit
+# stands for the operational conditions.
+#
+# 07/25: 07 is closed to landings and open only to daytime VFR take-offs by
+# based aircraft (AD 2.13, AD 2.20.3.5), so it is not offered. 25 has visual
+# approaches only (VPT, AD 2.24) and an omnidirectional departure
+# (AD 2.22.4.3); it is the fallback when 15/33 is closed or out of crosswind
+# limits.
+[LFSB.choice.10]
+name = "LVP"
+note = "CAT III on 15 only; 33 is CAT I"
+runways = ["15"]
+when = "lvo"
+
+[LFSB.choice.20]
+name = "NIGHT 33"
+note = "Night take-offs on 33 recommended"
+runways = ["33"]
+when = "time 22:00-06:00"
+established_tailwind_hours = 0
+
+[LFSB.choice.30]
+name = "15/33"
+runways = ["15/33"]
+
+[LFSB.choice.40]
+name = "25"
+note = "15/33 closed or out of wind limits; 07 is closed to landings"
+runways = ["25"]
+
+# Epinal Mirecourt. 26 is the only end with approaches (ILS/LOC, NDB and
+# RNP: AD 2.24), so arrivals stay on it and 08 is for departures. No
+# preferred direction is published.
+[LFSG]
+instrument_approaches = ["26"]
+
+[LFSG.choice.1]
+runways = ["26"]
+
+[LFSG.choice.2]
+note = "Departures only; arrivals stay on 26"
+runways = ["08"]
+
+# Montbeliard Courcelles. 26 is the only end with an approach (RNP: AD 2.24)
+# and QFU 257° (26) is preferred because of it (VAC TXT 01). IFR departures
+# from 26 are prohibited because of Mont Bart (AD 2.22.2), and at night only
+# the eastern funnel may be used, for landings on 26 and take-offs from 08
+# (AD 2.22.1, VAC TXT 01). Landing on 26 and departing from 08 is therefore
+# the first choice; it accepts a tailwind on one of the two. When the wind
+# rules it out, 26 is used both ways (VFR departures only), else 08 for
+# departures with arrivals still on 26. The unpaved 08L/26R may not be used
+# at the same time as the paved runway (VAC TXT 01) and is not offered.
+[LFSM]
+instrument_approaches = ["26"]
+
+[LFSM.choice.10]
+note = "Land 26, depart 08: IFR departures from 26 are prohibited"
+arr = ["26"]
+dep = ["08"]
+established_tailwind_hours = 0
+
+[LFSM.choice.20]
+note = "Preferred QFU; no IFR departures from 26"
+runways = ["26"]
+
+[LFSM.choice.30]
+note = "Departures only; arrivals stay on 26"
+runways = ["08"]
+
+# Nancy Essey. QFU 026° (03) is preferred because of the IFR procedure
+# (VAC TXT 01), and 03 is the only end with an approach (RNP: AD 2.24), so
+# arrivals stay on it. LVP applies to take-offs only, on both ends
+# (AD 2.22.1.2), and changes no runway. The unpaved 03R/21L is reserved for
+# helicopters (AD 2.20.1) and is not used.
+[LFSN]
+instrument_approaches = ["03"]
+
+[LFSN.choice.1]
+runways = ["03"]
+
+[LFSN.choice.2]
+note = "Departures only; arrivals stay on 03"
+runways = ["21"]
